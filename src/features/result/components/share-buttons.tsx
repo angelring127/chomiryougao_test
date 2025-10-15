@@ -12,20 +12,12 @@ interface ShareButtonsProps {
   top3Results: InferenceResult[];
 }
 
-interface ShareChannel {
-  name: string;
-  icon: string;
-  color: string;
-  lang?: string[];
-}
-
-const ALL_SHARE_CHANNELS: ShareChannel[] = [
+const SHARE_CHANNELS = [
   { name: "X (Twitter)", icon: "𝕏", color: "#000000" },
-  { name: "LINE", icon: "💬", color: "#00B900", lang: ["ja", "en", "zh"] },
-  { name: "KakaoTalk", icon: "💬", color: "#FEE500", lang: ["ko"] },
+  { name: "LINE", icon: "💬", color: "#00B900" },
   { name: "Facebook", icon: "f", color: "#1877F2" },
   { name: "WhatsApp", icon: "📱", color: "#25D366" },
-];
+] as const;
 
 export function ShareButtons({
   topSeasoningCode,
@@ -68,9 +60,6 @@ export function ShareButtons({
       case "LINE":
         url = `https://social-plugins.line.me/lineit/share?url=${encodedUrl}&text=${encodedText}`;
         break;
-      case "KakaoTalk":
-        url = `https://story.kakao.com/share?url=${encodedUrl}&text=${encodedText}`;
-        break;
       case "Facebook":
         url = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`;
         break;
@@ -102,12 +91,6 @@ export function ShareButtons({
     }
   };
 
-  // 言語に応じて表示するチャンネルをフィルタリング
-  const visibleChannels = ALL_SHARE_CHANNELS.filter((channel) => {
-    if (!channel.lang) return true;
-    return channel.lang.includes(language);
-  });
-
   return (
     <div className="w-full max-w-md mx-auto space-y-4">
       <h3 className="text-lg font-semibold text-center flex items-center justify-center gap-2">
@@ -116,14 +99,14 @@ export function ShareButtons({
       </h3>
 
       <div className="grid grid-cols-2 gap-3">
-        {visibleChannels.map((channel) => (
+        {SHARE_CHANNELS.map((channel) => (
           <button
             key={channel.name}
             onClick={() => handleShare(channel.name)}
             className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-all hover:scale-105 active:scale-95 shadow-md"
             style={{
               backgroundColor: channel.color,
-              color: channel.name === "KakaoTalk" ? "#000000" : "#ffffff",
+              color: "#ffffff",
             }}
           >
             <span className="text-xl">{channel.icon}</span>
