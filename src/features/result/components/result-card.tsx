@@ -63,12 +63,12 @@ export function ResultCard({ result, gender = "male" }: ResultCardProps) {
             {t("result.top")}
           </p>
 
-          <div className="relative w-48 h-48 mx-auto">
+          <div className="relative w-64 h-64 mx-auto">
             <Image
               src={getImagePath(result.top1.code)}
               alt={top1Info.name[language]}
               fill
-              className="object-contain rounded-full"
+              className="object-contain"
               priority
             />
           </div>
