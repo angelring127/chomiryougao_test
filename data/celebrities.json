@@ -1,0 +1,434 @@
+{
+  "soy_sauce": {
+    "male": [
+      {
+        "ja": "菅田将暉",
+        "ko": "스다 마사키",
+        "en": "Masaki Suda",
+        "zh": "菅田將暉",
+        "search": "菅田将暉"
+      },
+      {
+        "ja": "星野源",
+        "ko": "호시노 겐",
+        "en": "Gen Hoshino",
+        "zh": "星野源",
+        "search": "星野源"
+      },
+      {
+        "ja": "竹野内豊",
+        "ko": "타케노우치 유타카",
+        "en": "Yutaka Takenouchi",
+        "zh": "竹野內豐",
+        "search": "竹野内豊"
+      }
+    ],
+    "female": [
+      {
+        "ja": "石田ゆり子",
+        "ko": "이시다 유리코",
+        "en": "Yuriko Ishida",
+        "zh": "石田百合子",
+        "search": "石田ゆり子"
+      },
+      {
+        "ja": "吉永小百合",
+        "ko": "요시나가 사유리",
+        "en": "Sayuri Yoshinaga",
+        "zh": "吉永小百合",
+        "search": "吉永小百合"
+      },
+      {
+        "ja": "綾瀬はるか",
+        "ko": "아야세 하루카",
+        "en": "Haruka Ayase",
+        "zh": "綾瀨遙",
+        "search": "綾瀬はるか"
+      }
+    ]
+  },
+  "miso": {
+    "male": [
+      {
+        "ja": "阿部寛",
+        "ko": "아베 히로시",
+        "en": "Hiroshi Abe",
+        "zh": "阿部寬",
+        "search": "阿部寛"
+      },
+      {
+        "ja": "佐々木蔵之介",
+        "ko": "사사키 쿠라노스케",
+        "en": "Kuranosuke Sasaki",
+        "zh": "佐佐木藏之介",
+        "search": "佐々木蔵之介"
+      },
+      {
+        "ja": "大泉洋",
+        "ko": "오이즈미 요",
+        "en": "Yo Oizumi",
+        "zh": "大泉洋",
+        "search": "大泉洋"
+      }
+    ],
+    "female": [
+      {
+        "ja": "樹木希林",
+        "ko": "키키 키린",
+        "en": "Kirin Kiki",
+        "zh": "樹木希林",
+        "search": "樹木希林"
+      },
+      {
+        "ja": "吉田羊",
+        "ko": "요시다 요",
+        "en": "Yo Yoshida",
+        "zh": "吉田羊",
+        "search": "吉田羊"
+      },
+      {
+        "ja": "鈴木京香",
+        "ko": "스즈키 교카",
+        "en": "Kyoka Suzuki",
+        "zh": "鈴木京香",
+        "search": "鈴木京香"
+      }
+    ]
+  },
+  "salt": {
+    "male": [
+      {
+        "ja": "福山雅治",
+        "ko": "후쿠야마 마사하루",
+        "en": "Masaharu Fukuyama",
+        "zh": "福山雅治",
+        "search": "福山雅治"
+      },
+      {
+        "ja": "玉木宏",
+        "ko": "타마키 히로시",
+        "en": "Hiroshi Tamaki",
+        "zh": "玉木宏",
+        "search": "玉木宏"
+      },
+      {
+        "ja": "坂口健太郎",
+        "ko": "사카구치 켄타로",
+        "en": "Kentaro Sakaguchi",
+        "zh": "坂口健太郎",
+        "search": "坂口健太郎"
+      }
+    ],
+    "female": [
+      {
+        "ja": "北川景子",
+        "ko": "키타가와 케이코",
+        "en": "Keiko Kitagawa",
+        "zh": "北川景子",
+        "search": "北川景子"
+      },
+      {
+        "ja": "新垣結衣",
+        "ko": "아라가키 유이",
+        "en": "Yui Aragaki",
+        "zh": "新垣結衣",
+        "search": "新垣結衣"
+      },
+      {
+        "ja": "水原希子",
+        "ko": "미즈하라 키코",
+        "en": "Kiko Mizuhara",
+        "zh": "水原希子",
+        "search": "水原希子"
+      }
+    ]
+  },
+  "sugar": {
+    "male": [
+      {
+        "ja": "岡田将生",
+        "ko": "오카다 마사키",
+        "en": "Masaki Okada",
+        "zh": "岡田將生",
+        "search": "岡田将生"
+      },
+      {
+        "ja": "中川大志",
+        "ko": "나카가와 타이시",
+        "en": "Taishi Nakagawa",
+        "zh": "中川大志",
+        "search": "中川大志"
+      },
+      {
+        "ja": "神木隆之介",
+        "ko": "카미키 류노스케",
+        "en": "Ryunosuke Kamiki",
+        "zh": "神木隆之介",
+        "search": "神木隆之介"
+      }
+    ],
+    "female": [
+      {
+        "ja": "橋本環奈",
+        "ko": "하시모토 칸나",
+        "en": "Kanna Hashimoto",
+        "zh": "橋本環奈",
+        "search": "橋本環奈"
+      },
+      {
+        "ja": "広瀬すず",
+        "ko": "히로세 스즈",
+        "en": "Suzu Hirose",
+        "zh": "廣瀨鈴",
+        "search": "広瀬すず"
+      },
+      {
+        "ja": "有村架純",
+        "ko": "아리무라 카스미",
+        "en": "Kasumi Arimura",
+        "zh": "有村架純",
+        "search": "有村架純"
+      }
+    ]
+  },
+  "vinegar": {
+    "male": [
+      {
+        "ja": "小栗旬",
+        "ko": "오구리 슌",
+        "en": "Shun Oguri",
+        "zh": "小栗旬",
+        "search": "小栗旬"
+      },
+      {
+        "ja": "山田孝之",
+        "ko": "야마다 타카유키",
+        "en": "Takayuki Yamada",
+        "zh": "山田孝之",
+        "search": "山田孝之"
+      },
+      {
+        "ja": "菅田将暉",
+        "ko": "스다 마사키",
+        "en": "Masaki Suda",
+        "zh": "菅田將暉",
+        "search": "菅田将暉"
+      }
+    ],
+    "female": [
+      {
+        "ja": "満島ひかり",
+        "ko": "미츠시마 히카리",
+        "en": "Hikari Mitsushima",
+        "zh": "滿島光",
+        "search": "満島ひかり"
+      },
+      {
+        "ja": "小松菜奈",
+        "ko": "코마츠 나나",
+        "en": "Nana Komatsu",
+        "zh": "小松菜奈",
+        "search": "小松菜奈"
+      },
+      {
+        "ja": "二階堂ふみ",
+        "ko": "니카이도 후미",
+        "en": "Fumi Nikaido",
+        "zh": "二階堂富美",
+        "search": "二階堂ふみ"
+      }
+    ]
+  },
+  "sauce": {
+    "male": [
+      {
+        "ja": "渡辺謙",
+        "ko": "와타나베 켄",
+        "en": "Ken Watanabe",
+        "zh": "渡邊謙",
+        "search": "渡辺謙"
+      },
+      {
+        "ja": "役所広司",
+        "ko": "야쿠쇼 코지",
+        "en": "Koji Yakusho",
+        "zh": "役所廣司",
+        "search": "役所広司"
+      },
+      {
+        "ja": "遠藤憲一",
+        "ko": "엔도 켄이치",
+        "en": "Kenichi Endo",
+        "zh": "遠藤憲一",
+        "search": "遠藤憲一"
+      }
+    ],
+    "female": [
+      {
+        "ja": "天海祐希",
+        "ko": "아마미 유키",
+        "en": "Yuki Amami",
+        "zh": "天海祐希",
+        "search": "天海祐希"
+      },
+      {
+        "ja": "木村佳乃",
+        "ko": "키무라 요시노",
+        "en": "Yoshino Kimura",
+        "zh": "木村佳乃",
+        "search": "木村佳乃"
+      },
+      {
+        "ja": "松嶋菜々子",
+        "ko": "마츠시마 나나코",
+        "en": "Nanako Matsushima",
+        "zh": "松嶋菜菜子",
+        "search": "松嶋菜々子"
+      }
+    ]
+  },
+  "mayo": {
+    "male": [
+      {
+        "ja": "松山ケンイチ",
+        "ko": "마츠야마 켄이치",
+        "en": "Kenichi Matsuyama",
+        "zh": "松山研一",
+        "search": "松山ケンイチ"
+      },
+      {
+        "ja": "瑛太",
+        "ko": "에이타",
+        "en": "Eita",
+        "zh": "瑛太",
+        "search": "瑛太"
+      },
+      {
+        "ja": "染谷将太",
+        "ko": "소메야 쇼타",
+        "en": "Shota Sometani",
+        "zh": "染谷將太",
+        "search": "染谷将太"
+      }
+    ],
+    "female": [
+      {
+        "ja": "蒼井優",
+        "ko": "아오이 유",
+        "en": "Yu Aoi",
+        "zh": "蒼井優",
+        "search": "蒼井優"
+      },
+      {
+        "ja": "宮崎あおい",
+        "ko": "미야자키 아오이",
+        "en": "Aoi Miyazaki",
+        "zh": "宮崎葵",
+        "search": "宮崎あおい"
+      },
+      {
+        "ja": "能年玲奈",
+        "ko": "노넨 레나",
+        "en": "Rena Nonen",
+        "zh": "能年玲奈",
+        "search": "能年玲奈"
+      }
+    ]
+  },
+  "ketchup": {
+    "male": [
+      {
+        "ja": "山崎賢人",
+        "ko": "야마자키 켄토",
+        "en": "Kento Yamazaki",
+        "zh": "山崎賢人",
+        "search": "山崎賢人"
+      },
+      {
+        "ja": "千葉雄大",
+        "ko": "치바 유다이",
+        "en": "Yudai Chiba",
+        "zh": "千葉雄大",
+        "search": "千葉雄大"
+      },
+      {
+        "ja": "中島健人",
+        "ko": "나카지마 켄토",
+        "en": "Kento Nakajima",
+        "zh": "中島健人",
+        "search": "中島健人"
+      }
+    ],
+    "female": [
+      {
+        "ja": "土屋太鳳",
+        "ko": "츠치야 타오",
+        "en": "Tao Tsuchiya",
+        "zh": "土屋太鳳",
+        "search": "土屋太鳳"
+      },
+      {
+        "ja": "波瑠",
+        "ko": "하루",
+        "en": "Haru",
+        "zh": "波瑠",
+        "search": "波瑠"
+      },
+      {
+        "ja": "石原さとみ",
+        "ko": "이시하라 사토미",
+        "en": "Satomi Ishihara",
+        "zh": "石原聰美",
+        "search": "石原さとみ"
+      }
+    ]
+  },
+  "olive": {
+    "male": [
+      {
+        "ja": "ディーン・フジオカ",
+        "ko": "딘 후지오카",
+        "en": "Dean Fujioka",
+        "zh": "藤岡靛",
+        "search": "ディーン・フジオカ"
+      },
+      {
+        "ja": "竹内涼真",
+        "ko": "타케우치 료마",
+        "en": "Ryoma Takeuchi",
+        "zh": "竹內涼真",
+        "search": "竹内涼真"
+      },
+      {
+        "ja": "三浦春馬",
+        "ko": "미우라 하루마",
+        "en": "Haruma Miura",
+        "zh": "三浦春馬",
+        "search": "三浦春馬"
+      }
+    ],
+    "female": [
+      {
+        "ja": "中村アン",
+        "ko": "나카무라 안",
+        "en": "Anne Nakamura",
+        "zh": "中村安",
+        "search": "中村アン"
+      },
+      {
+        "ja": "米倉涼子",
+        "ko": "요네쿠라 료코",
+        "en": "Ryoko Yonekura",
+        "zh": "米倉涼子",
+        "search": "米倉涼子"
+      },
+      {
+        "ja": "菜々緒",
+        "ko": "나나오",
+        "en": "Nanao",
+        "zh": "菜菜緒",
+        "search": "菜々緒"
+      }
+    ]
+  }
+}

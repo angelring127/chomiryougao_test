@@ -1,0 +1,110 @@
+[
+  {
+    "code": "soy_sauce",
+    "name": {
+      "ja": "醤油",
+      "ko": "간장",
+      "en": "Soy Sauce",
+      "zh": "醬油"
+    },
+    "color": "#2E2B28",
+    "descKey": "desc.soy_sauce",
+    "availableFor": ["male", "female"]
+  },
+  {
+    "code": "miso",
+    "name": {
+      "ja": "味噌",
+      "ko": "미소",
+      "en": "Miso",
+      "zh": "味噌"
+    },
+    "color": "#C28F43",
+    "descKey": "desc.miso",
+    "availableFor": ["male", "female"]
+  },
+  {
+    "code": "salt",
+    "name": {
+      "ja": "塩",
+      "ko": "소금",
+      "en": "Salt",
+      "zh": "鹽"
+    },
+    "color": "#F5F5F5",
+    "descKey": "desc.salt",
+    "availableFor": ["male", "female"]
+  },
+  {
+    "code": "sugar",
+    "name": {
+      "ja": "砂糖",
+      "ko": "설탕",
+      "en": "Sugar",
+      "zh": "砂糖"
+    },
+    "color": "#FFEFD5",
+    "descKey": "desc.sugar",
+    "availableFor": ["male", "female"]
+  },
+  {
+    "code": "vinegar",
+    "name": {
+      "ja": "酢",
+      "ko": "식초",
+      "en": "Vinegar",
+      "zh": "醋"
+    },
+    "color": "#FFF8DC",
+    "descKey": "desc.vinegar",
+    "availableFor": ["male"]
+  },
+  {
+    "code": "sauce",
+    "name": {
+      "ja": "ソース",
+      "ko": "소스",
+      "en": "Sauce",
+      "zh": "醬汁"
+    },
+    "color": "#8B4513",
+    "descKey": "desc.sauce",
+    "availableFor": ["male", "female"]
+  },
+  {
+    "code": "mayo",
+    "name": {
+      "ja": "マヨネーズ",
+      "ko": "마요네즈",
+      "en": "Mayonnaise",
+      "zh": "美乃滋"
+    },
+    "color": "#FFFACD",
+    "descKey": "desc.mayo",
+    "availableFor": ["male"]
+  },
+  {
+    "code": "ketchup",
+    "name": {
+      "ja": "ケチャップ",
+      "ko": "케첩",
+      "en": "Ketchup",
+      "zh": "番茄醬"
+    },
+    "color": "#DC143C",
+    "descKey": "desc.ketchup",
+    "availableFor": ["male"]
+  },
+  {
+    "code": "olive",
+    "name": {
+      "ja": "オリーブオイル",
+      "ko": "올리브오일",
+      "en": "Olive Oil",
+      "zh": "橄欖油"
+    },
+    "color": "#808000",
+    "descKey": "desc.olive",
+    "availableFor": ["male", "female"]
+  }
+]

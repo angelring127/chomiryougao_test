@@ -1,0 +1,80 @@
+{
+  "title": "Japanese Seasoning Face Test",
+  "subtitle": "Which seasoning face are you?",
+  "description": "Upload your photo and discover which Japanese seasoning your face resembles!",
+  "cta": {
+    "upload": "Upload Photo",
+    "camera": "Take Photo",
+    "retake": "Try Again",
+    "share": "Share",
+    "analyze": "Analyze"
+  },
+  "privacy": {
+    "notice": "Images are not stored on the server",
+    "title": "Privacy Policy",
+    "description": "Your images are only processed in your browser and are never sent to the server."
+  },
+  "result": {
+    "top": "Your seasoning type is",
+    "mix": "Your seasoning mix",
+    "compatibility": "Compatibility",
+    "tryAgain": "Try Again"
+  },
+  "share": {
+    "text": "I'm {{name}} {{percent}}%! What about you?",
+    "title": "Share Result",
+    "copyLink": "Copy Link",
+    "copied": "Copied!"
+  },
+  "upload": {
+    "title": "Select Photo",
+    "dragDrop": "Drag & Drop here",
+    "or": "or",
+    "selectFile": "Select File",
+    "requirements": "JPG, PNG format, max 5MB",
+    "processing": "Processing...",
+    "error": {
+      "title": "An error occurred",
+      "noFace": "No face detected. Please try another photo.",
+      "multipleFaces": "Multiple faces detected. Please use a photo with one person.",
+      "fileSize": "File size is too large (max 5MB)",
+      "fileType": "Unsupported file format",
+      "generic": "An error occurred. Please try again."
+    }
+  },
+  "inference": {
+    "analyzing": "Analyzing...",
+    "loading": "Loading model...",
+    "complete": "Analysis complete!"
+  },
+  "gender": {
+    "male": "Male",
+    "female": "Female",
+    "select": "Select Gender"
+  },
+  "desc": {
+    "soy_sauce": "Balanced and deep soy sauce type. A versatile personality that values harmony in any situation.",
+    "miso": "Warm and rich miso type. You have an embracing nature that makes others feel comfortable.",
+    "salt": "Simple and refined salt type. You have the power to see through to the essence and give a clean impression.",
+    "sugar": "Sweet and gentle sugar type. You have an attractive charm and positive energy.",
+    "vinegar": "Fresh and stimulating vinegar type. You have a unique personality and provide fresh perspectives.",
+    "sauce": "Rich and powerful sauce type. You have a strong presence and demonstrate leadership.",
+    "mayo": "Smooth and creamy mayonnaise type. You are flexible and can get along with anyone.",
+    "ketchup": "Bright and passionate ketchup type. You are energetic and have the power to cheer up those around you.",
+    "olive": "Sophisticated and elegant olive oil type. You have refined and healthy charm."
+  },
+  "footer": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "version": "Version",
+    "madeWith": "Made with ❤️"
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "content": "Terms of service for this website."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About"
+  }
+}

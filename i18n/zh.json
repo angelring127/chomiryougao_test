@@ -1,0 +1,80 @@
+{
+  "title": "日本調味料臉型測試",
+  "subtitle": "你是哪種調味料臉？",
+  "description": "上傳照片，找出你的臉最像哪種日本調味料！",
+  "cta": {
+    "upload": "上傳照片",
+    "camera": "拍照",
+    "retake": "重新測試",
+    "share": "分享",
+    "analyze": "開始分析"
+  },
+  "privacy": {
+    "notice": "圖片不會儲存在伺服器",
+    "title": "隱私權政策",
+    "description": "您的圖片僅在瀏覽器內處理，不會傳送到伺服器。"
+  },
+  "result": {
+    "top": "你的調味料類型是",
+    "mix": "你的調味料組合",
+    "compatibility": "相容度",
+    "tryAgain": "再試一次"
+  },
+  "share": {
+    "text": "我是{{name}} {{percent}}%！你呢？",
+    "title": "分享結果",
+    "copyLink": "複製連結",
+    "copied": "已複製！"
+  },
+  "upload": {
+    "title": "選擇照片",
+    "dragDrop": "拖曳到這裡",
+    "or": "或",
+    "selectFile": "選擇檔案",
+    "requirements": "JPG、PNG 格式，最大 5MB",
+    "processing": "處理中...",
+    "error": {
+      "title": "發生錯誤",
+      "noFace": "未偵測到臉部。請嘗試其他照片。",
+      "multipleFaces": "偵測到多張臉。請使用單人照片。",
+      "fileSize": "檔案大小過大（最大 5MB）",
+      "fileType": "不支援的檔案格式",
+      "generic": "發生錯誤。請重試。"
+    }
+  },
+  "inference": {
+    "analyzing": "分析中...",
+    "loading": "載入模型中...",
+    "complete": "分析完成！"
+  },
+  "gender": {
+    "male": "男性",
+    "female": "女性",
+    "select": "選擇性別"
+  },
+  "desc": {
+    "soy_sauce": "平衡深邃的醬油類型。在任何情況下都重視和諧的萬能性格。",
+    "miso": "溫暖深層風味的味噌類型。具有包容力，讓周圍感到舒適。",
+    "salt": "簡單精緻的鹽類型。有洞察本質的力量，給人清爽的印象。",
+    "sugar": "甜美溫柔的砂糖類型。有吸引人的魅力，擁有正面能量。",
+    "vinegar": "清爽刺激的醋類型。有獨特個性，提供新鮮觀點。",
+    "sauce": "濃郁強烈的醬料類型。有存在感，展現領導力。",
+    "mayo": "柔和奶油的美乃滋類型。有彈性，能與任何人相處融洽。",
+    "ketchup": "明亮熱情的番茄醬類型。有活力，有讓周圍開心的力量。",
+    "olive": "精緻優雅的橄欖油類型。擁有品味和健康的魅力。"
+  },
+  "footer": {
+    "privacy": "隱私權政策",
+    "terms": "使用條款",
+    "version": "版本",
+    "madeWith": "Made with ❤️"
+  },
+  "terms": {
+    "title": "使用條款",
+    "content": "本服務的使用條款。"
+  },
+  "nav": {
+    "home": "首頁",
+    "about": "關於本站"
+  }
+}
