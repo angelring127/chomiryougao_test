@@ -50,7 +50,8 @@
   "gender": {
     "male": "男性",
     "female": "女性",
-    "select": "選擇性別"
+    "select": "選擇性別",
+    "comingSoon": "即將推出"
   },
   "desc": {
     "soy_sauce": "平衡深邃的醬油類型。在任何情況下都重視和諧的萬能性格。",

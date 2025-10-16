@@ -50,7 +50,8 @@
   "gender": {
     "male": "Male",
     "female": "Female",
-    "select": "Select Gender"
+    "select": "Select Gender",
+    "comingSoon": "Coming Soon"
   },
   "desc": {
     "soy_sauce": "Balanced and deep soy sauce type. A versatile personality that values harmony in any situation.",

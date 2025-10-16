@@ -50,7 +50,8 @@
   "gender": {
     "male": "남성",
     "female": "여성",
-    "select": "성별 선택"
+    "select": "성별 선택",
+    "comingSoon": "준비 중"
   },
   "desc": {
     "soy_sauce": "균형잡힌 깊이 있는 간장 타입. 어떤 상황에서도 조화를 중시하는 만능 성격입니다.",
