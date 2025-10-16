@@ -28,13 +28,13 @@ export default function HomePage() {
   const handleAnalyze = async () => {
     if (!uploadedImage) return;
 
-    trackEvents.inferenceStart("tm-v1.0.0-dummy");
+    trackEvents.inferenceStart("tm-v1.0.0");
     const startTime = Date.now();
 
     try {
       await analyze(uploadedImage, gender);
       const duration = Date.now() - startTime;
-      trackEvents.inferenceDone("tm-v1.0.0-dummy", duration);
+      trackEvents.inferenceDone("tm-v1.0.0", duration);
       router.push("/result");
     } catch (err) {
       console.error("Analysis error:", err);

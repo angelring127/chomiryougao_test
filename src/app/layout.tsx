@@ -37,6 +37,16 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>
+        {/* Teachable Machine ライブラリ */}
+        <Script
+          src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"
+          strategy="beforeInteractive"
+        />
+        <Script
+          src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"
+          strategy="beforeInteractive"
+        />
+
         {GA_MEASUREMENT_ID && (
           <>
             <Script
