@@ -35,35 +35,45 @@ export default function PrivacyPage() {
 
           <div className="prose prose-slate max-w-none">
             <section className="space-y-4">
-              <h2 className="text-2xl font-semibold">{t("privacy.imageHandling.title")}</h2>
+              <h2 className="text-2xl font-semibold">
+                {t("privacy.imageHandling.title")}
+              </h2>
               <p className="text-muted-foreground leading-relaxed">
                 {t("privacy.imageHandling.content")}
               </p>
             </section>
 
             <section className="space-y-4 mt-8">
-              <h2 className="text-2xl font-semibold">{t("privacy.cookies.title")}</h2>
+              <h2 className="text-2xl font-semibold">
+                {t("privacy.cookies.title")}
+              </h2>
               <p className="text-muted-foreground leading-relaxed">
                 {t("privacy.cookies.content")}
               </p>
             </section>
 
             <section className="space-y-4 mt-8">
-              <h2 className="text-2xl font-semibold">{t("privacy.analytics.title")}</h2>
+              <h2 className="text-2xl font-semibold">
+                {t("privacy.analytics.title")}
+              </h2>
               <p className="text-muted-foreground leading-relaxed">
                 {t("privacy.analytics.content")}
               </p>
             </section>
 
             <section className="space-y-4 mt-8">
-              <h2 className="text-2xl font-semibold">{t("privacy.advertising.title")}</h2>
+              <h2 className="text-2xl font-semibold">
+                {t("privacy.advertising.title")}
+              </h2>
               <p className="text-muted-foreground leading-relaxed">
                 {t("privacy.advertising.content")}
               </p>
             </section>
 
             <section className="space-y-4 mt-8">
-              <h2 className="text-2xl font-semibold">{t("privacy.contact.title")}</h2>
+              <h2 className="text-2xl font-semibold">
+                {t("privacy.contact.title")}
+              </h2>
               <p className="text-muted-foreground leading-relaxed">
                 {t("privacy.contact.content")}
               </p>

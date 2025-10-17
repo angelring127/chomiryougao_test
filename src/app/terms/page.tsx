@@ -35,14 +35,18 @@ export default function TermsPage() {
 
           <div className="prose prose-slate max-w-none">
             <section className="space-y-4">
-              <h2 className="text-2xl font-semibold">{t("terms.purpose.title")}</h2>
+              <h2 className="text-2xl font-semibold">
+                {t("terms.purpose.title")}
+              </h2>
               <p className="text-muted-foreground leading-relaxed">
                 {t("terms.purpose.content")}
               </p>
             </section>
 
             <section className="space-y-4 mt-8">
-              <h2 className="text-2xl font-semibold">{t("terms.rules.title")}</h2>
+              <h2 className="text-2xl font-semibold">
+                {t("terms.rules.title")}
+              </h2>
               <ul className="list-disc list-inside space-y-2 text-muted-foreground">
                 {(t("terms.rules.items") as string[]).map((item, index) => (
                   <li key={index}>{item}</li>
@@ -51,23 +55,31 @@ export default function TermsPage() {
             </section>
 
             <section className="space-y-4 mt-8">
-              <h2 className="text-2xl font-semibold">{t("terms.prohibited.title")}</h2>
+              <h2 className="text-2xl font-semibold">
+                {t("terms.prohibited.title")}
+              </h2>
               <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                {(t("terms.prohibited.items") as string[]).map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
+                {(t("terms.prohibited.items") as string[]).map(
+                  (item, index) => (
+                    <li key={index}>{item}</li>
+                  )
+                )}
               </ul>
             </section>
 
             <section className="space-y-4 mt-8">
-              <h2 className="text-2xl font-semibold">{t("terms.copyright.title")}</h2>
+              <h2 className="text-2xl font-semibold">
+                {t("terms.copyright.title")}
+              </h2>
               <p className="text-muted-foreground leading-relaxed">
                 {t("terms.copyright.content")}
               </p>
             </section>
 
             <section className="space-y-4 mt-8">
-              <h2 className="text-2xl font-semibold">{t("terms.disclaimer.title")}</h2>
+              <h2 className="text-2xl font-semibold">
+                {t("terms.disclaimer.title")}
+              </h2>
               <p className="text-muted-foreground leading-relaxed">
                 {t("terms.disclaimer.content")}
               </p>

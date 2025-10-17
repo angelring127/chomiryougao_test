@@ -157,13 +157,14 @@ export function ResultCard({ result, gender = "male" }: ResultCardProps) {
                     {percent}%
                   </span>
                 </div>
-                <div className="h-4 bg-muted rounded-full overflow-hidden">
+                <div className="h-4 bg-muted rounded-full overflow-hidden border border-gray-300">
                   <div
                     className="h-full transition-all duration-1000 ease-out rounded-full"
                     style={{
                       width: `${percent}%`,
                       backgroundColor: info.color,
                       animation: `slideIn 1s ease-out ${index * 0.1}s both`,
+                      border: "1px solid rgba(0,0,0,0.1)",
                     }}
                   />
                 </div>
