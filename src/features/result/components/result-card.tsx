@@ -5,7 +5,6 @@ import type { AnalysisResult, SeasoningCode, Gender } from "@/types/seasoning";
 import { formatProbability } from "@/features/inference/lib/inference-engine";
 import seasoningsData from "@/../data/seasonings.json";
 import celebritiesData from "@/../data/celebrities.json";
-import Image from "next/image";
 import { Star } from "lucide-react";
 
 interface ResultCardProps {
@@ -63,13 +62,11 @@ export function ResultCard({ result, gender = "male" }: ResultCardProps) {
             {t("result.top")}
           </p>
 
-          <div className="relative w-64 h-64 mx-auto">
-            <Image
+          <div className="w-64 h-64 mx-auto flex items-center justify-center">
+            <img
               src={getImagePath(result.top1.code)}
               alt={top1Info.name[language]}
-              fill
-              className="object-contain"
-              priority
+              className="max-w-full max-h-full object-contain"
             />
           </div>
 
