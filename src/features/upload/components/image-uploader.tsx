@@ -87,15 +87,17 @@ export function ImageUploader({ onImageProcessed }: ImageUploaderProps) {
   if (preview) {
     return (
       <div className="relative w-full max-w-md mx-auto">
-        <div className="relative w-full bg-gray-100 rounded-lg shadow-lg aspect-[3/4] flex items-center justify-center overflow-hidden">
-          <img
-            src={preview}
-            alt="Preview"
-            className="max-w-full max-h-full object-contain"
-          />
+        <div className="relative w-full bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+          <div className="w-full" style={{ paddingBottom: "133.33%" }}>
+            <img
+              src={preview}
+              alt="Preview"
+              className="absolute inset-0 w-full h-full object-contain p-2"
+            />
+          </div>
           <button
             onClick={clearPreview}
-            className="absolute top-2 right-2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors"
+            className="absolute top-2 right-2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors z-10"
             aria-label="Clear preview"
           >
             <X className="h-4 w-4" />
