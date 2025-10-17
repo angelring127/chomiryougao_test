@@ -26,6 +26,28 @@ export function ResultCard({ result, gender = "male" }: ResultCardProps) {
     return `/images/face/${gender}/face_${code}_${gender}.png`;
   };
 
+  // 밝은 색상 판별 함수
+  const isLightColor = (hexColor: string) => {
+    const hex = hexColor.replace("#", "");
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    return brightness > 200;
+  };
+
+  // 텍스트 스타일 (밝은 색은 검은 그림자 추가)
+  const getTextStyle = (color: string) => {
+    if (isLightColor(color)) {
+      return {
+        color,
+        textShadow:
+          "0 0 2px rgba(0,0,0,0.8), 0 0 4px rgba(0,0,0,0.6), 1px 1px 2px rgba(0,0,0,0.5)",
+      };
+    }
+    return { color };
+  };
+
   if (!top1Info) {
     return null;
   }
@@ -57,13 +79,13 @@ export function ResultCard({ result, gender = "male" }: ResultCardProps) {
           <div>
             <h2
               className="text-4xl font-bold mb-2"
-              style={{ color: top1Info.color }}
+              style={getTextStyle(top1Info.color)}
             >
               {top1Info.name[language]}
             </h2>
             <p
               className="text-5xl font-extrabold"
-              style={{ color: top1Info.color }}
+              style={getTextStyle(top1Info.color)}
             >
               {top1Percent}%
             </p>
@@ -92,7 +114,7 @@ export function ResultCard({ result, gender = "male" }: ResultCardProps) {
               <div key={item.code} className="space-y-1">
                 <div className="flex justify-between items-center text-sm">
                   <span className="font-medium">{info.name[language]}</span>
-                  <span className="font-bold" style={{ color: info.color }}>
+                  <span className="font-bold" style={getTextStyle(info.color)}>
                     {percent}%
                   </span>
                 </div>
