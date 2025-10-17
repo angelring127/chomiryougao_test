@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { ImageUploader } from "@/features/upload/components/image-uploader";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { GenderToggle } from "@/components/gender-toggle";
+import { SeasoningCarousel } from "@/components/seasoning-carousel";
 import { AdSlot } from "@/components/ad-slot";
 import { useI18n } from "@/hooks/use-i18n";
 import { useInference } from "@/features/inference/hooks/use-inference";
@@ -74,6 +75,9 @@ export default function HomePage() {
           <p className="text-base text-muted-foreground max-w-xl mx-auto">
             {t("description")}
           </p>
+          
+          {/* 조미료 슬라이드 */}
+          <SeasoningCarousel />
         </div>
 
         {/* 性別選択 */}
