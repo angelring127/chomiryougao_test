@@ -83,8 +83,6 @@ function getOrientation(file: File): Promise<number> {
 }
 
 export async function processImage(file: File): Promise<ProcessedImage> {
-  const orientation = await getOrientation(file);
-
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
 
@@ -102,68 +100,27 @@ export async function processImage(file: File): Promise<ProcessedImage> {
 
         let { width, height } = img;
 
-        // EXIF方向補正
-        if (orientation > 4) {
-          canvas.width = height;
-          canvas.height = width;
-        } else {
-          canvas.width = width;
-          canvas.height = height;
-        }
-
-        switch (orientation) {
-          case 2:
-            ctx.transform(-1, 0, 0, 1, width, 0);
-            break;
-          case 3:
-            ctx.transform(-1, 0, 0, -1, width, height);
-            break;
-          case 4:
-            ctx.transform(1, 0, 0, -1, 0, height);
-            break;
-          case 5:
-            ctx.transform(0, 1, 1, 0, 0, 0);
-            break;
-          case 6:
-            ctx.transform(0, 1, -1, 0, height, 0);
-            break;
-          case 7:
-            ctx.transform(0, -1, -1, 0, height, width);
-            break;
-          case 8:
-            ctx.transform(0, -1, 1, 0, 0, width);
-            break;
-        }
-
-        ctx.drawImage(img, 0, 0);
-
-        // リサイズ（推奨サイズより大きい場合）
+        // 리사이즈만 수행 (EXIF 회전 처리 제거)
         if (width > RECOMMENDED_WIDTH) {
           const scale = RECOMMENDED_WIDTH / width;
-          const newWidth = RECOMMENDED_WIDTH;
-          const newHeight = Math.floor(height * scale);
-
-          const resizeCanvas = document.createElement("canvas");
-          resizeCanvas.width = newWidth;
-          resizeCanvas.height = newHeight;
-          const resizeCtx = resizeCanvas.getContext("2d");
-
-          if (resizeCtx) {
-            resizeCtx.drawImage(canvas, 0, 0, newWidth, newHeight);
-
-            resolve({
-              dataUrl: resizeCanvas.toDataURL("image/jpeg", 0.9),
-              width: newWidth,
-              height: newHeight,
-            });
-            return;
-          }
+          width = RECOMMENDED_WIDTH;
+          height = Math.floor(height * scale);
         }
 
+        canvas.width = width;
+        canvas.height = height;
+
+        // 흰색 배경 설정
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(0, 0, width, height);
+
+        // 이미지 그리기
+        ctx.drawImage(img, 0, 0, width, height);
+
         resolve({
-          dataUrl: canvas.toDataURL("image/jpeg", 0.9),
-          width: canvas.width,
-          height: canvas.height,
+          dataUrl: canvas.toDataURL("image/jpeg", 0.95),
+          width: width,
+          height: height,
         });
       };
 
