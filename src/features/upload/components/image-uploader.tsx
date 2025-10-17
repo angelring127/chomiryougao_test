@@ -21,10 +21,6 @@ export function ImageUploader({ onImageProcessed }: ImageUploaderProps) {
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState<ValidationError | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
-  const [previewSize, setPreviewSize] = useState<{
-    width: number;
-    height: number;
-  } | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const cameraInputRef = useRef<HTMLInputElement>(null);
 
@@ -43,7 +39,6 @@ export function ImageUploader({ onImageProcessed }: ImageUploaderProps) {
 
         const processed = await processImage(file);
         setPreview(processed.dataUrl);
-        setPreviewSize({ width: processed.width, height: processed.height });
         setUploadedImage(processed.dataUrl);
         onImageProcessed(processed.dataUrl);
       } catch (err) {
@@ -83,7 +78,6 @@ export function ImageUploader({ onImageProcessed }: ImageUploaderProps) {
 
   const clearPreview = useCallback(() => {
     setPreview(null);
-    setPreviewSize(null);
     setUploadedImage(null);
     setError(null);
     if (fileInputRef.current) fileInputRef.current.value = "";
@@ -93,11 +87,11 @@ export function ImageUploader({ onImageProcessed }: ImageUploaderProps) {
   if (preview) {
     return (
       <div className="relative w-full max-w-md mx-auto">
-        <div className="relative w-full bg-muted rounded-lg shadow-lg aspect-[3/4] flex items-center justify-center overflow-hidden">
+        <div className="relative w-full bg-gray-100 rounded-lg shadow-lg aspect-[3/4] flex items-center justify-center overflow-hidden">
           <img
             src={preview}
             alt="Preview"
-            className="w-full h-full object-contain"
+            className="max-w-full max-h-full object-contain"
           />
           <button
             onClick={clearPreview}
