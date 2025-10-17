@@ -93,13 +93,11 @@ export function ImageUploader({ onImageProcessed }: ImageUploaderProps) {
   if (preview) {
     return (
       <div className="relative w-full max-w-md mx-auto">
-        <div
-          className="relative w-full max-h-[70vh] bg-muted rounded-lg shadow-lg aspect-[3/4] flex items-center justify-center overflow-hidden"
-        >
+        <div className="relative w-full bg-muted rounded-lg shadow-lg aspect-[3/4] flex items-center justify-center overflow-hidden">
           <img
             src={preview}
             alt="Preview"
-            className="max-w-full max-h-full object-contain"
+            className="w-full h-full object-contain"
           />
           <button
             onClick={clearPreview}
