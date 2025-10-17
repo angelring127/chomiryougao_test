@@ -11,7 +11,7 @@ export function GenderToggle() {
 
   const genders: { value: Gender; icon: typeof User; disabled: boolean }[] = [
     { value: "male", icon: User, disabled: false },
-    { value: "female", icon: UserCheck, disabled: true },
+    { value: "female", icon: UserCheck, disabled: false },
   ];
 
   return (

@@ -7,10 +7,20 @@ const SEASONINGS = seasoningsData as Array<{
 }>;
 
 // Teachable Machine モデルURL
-const MODEL_URL = "https://teachablemachine.withgoogle.com/models/nKV4owvTC/";
+const MODEL_URLS = {
+  male: "https://teachablemachine.withgoogle.com/models/nKV4owvTC/",
+  female: "https://teachablemachine.withgoogle.com/models/P3QZ3AWH_/",
+};
 
-let modelInstance: any = null;
-let isModelLoading = false;
+let modelInstances: Record<Gender, any> = {
+  male: null,
+  female: null,
+};
+
+let isModelLoading: Record<Gender, boolean> = {
+  male: false,
+  female: false,
+};
 
 declare global {
   interface Window {
@@ -18,19 +28,19 @@ declare global {
   }
 }
 
-export async function loadModel(): Promise<void> {
-  if (modelInstance) {
+export async function loadModel(gender: Gender = "male"): Promise<void> {
+  if (modelInstances[gender]) {
     return;
   }
 
-  if (isModelLoading) {
-    while (isModelLoading) {
+  if (isModelLoading[gender]) {
+    while (isModelLoading[gender]) {
       await new Promise((resolve) => setTimeout(resolve, 100));
     }
     return;
   }
 
-  isModelLoading = true;
+  isModelLoading[gender] = true;
 
   try {
     // Teachable Machine ライブラリの読み込み確認
@@ -38,16 +48,16 @@ export async function loadModel(): Promise<void> {
       throw new Error("Teachable Machine library not loaded");
     }
 
-    const modelURL = MODEL_URL + "model.json";
-    const metadataURL = MODEL_URL + "metadata.json";
+    const modelURL = MODEL_URLS[gender] + "model.json";
+    const metadataURL = MODEL_URLS[gender] + "metadata.json";
 
-    modelInstance = await window.tmImage.load(modelURL, metadataURL);
-    console.log("Model loaded successfully");
+    modelInstances[gender] = await window.tmImage.load(modelURL, metadataURL);
+    console.log(`${gender} model loaded successfully`);
   } catch (error) {
-    console.error("Failed to load model:", error);
+    console.error(`Failed to load ${gender} model:`, error);
     throw error;
   } finally {
-    isModelLoading = false;
+    isModelLoading[gender] = false;
   }
 }
 
@@ -76,8 +86,8 @@ export async function runInference(
   gender: Gender = "male"
 ): Promise<InferenceResult[]> {
   try {
-    if (!modelInstance) {
-      await loadModel();
+    if (!modelInstances[gender]) {
+      await loadModel(gender);
     }
 
     // 画像要素を作成
@@ -91,8 +101,8 @@ export async function runInference(
     });
 
     // Teachable Machine で推論
-    const predictions = await modelInstance.predict(img);
-    console.log("Predictions:", predictions);
+    const predictions = await modelInstances[gender].predict(img);
+    console.log(`${gender} model predictions:`, predictions);
 
     // 予測結果をInferenceResult形式に変換
     // モデルのクラス名: "soy_sauce_face", "mayo_face" など

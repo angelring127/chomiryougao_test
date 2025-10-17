@@ -27,7 +27,7 @@ export function useInference(): UseInferenceResult {
       setError(null);
 
       try {
-        await loadModel();
+        await loadModel(gender);
 
         const results = await runInference(imageDataUrl, gender);
         const top3 = getTop3Results(results);
