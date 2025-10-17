@@ -23,23 +23,7 @@ export function ResultCard({ result, gender = "male" }: ResultCardProps) {
   const top1Percent = formatProbability(result.top1.probability);
 
   const getImagePath = (code: SeasoningCode) => {
-    const genderFolder = gender === "female" ? "여성" : "남성";
-    const nameMap: Record<SeasoningCode, string> = {
-      soy_sauce: "간장",
-      miso: "미소",
-      salt: "소금",
-      sugar: "설탕",
-      vinegar: "식초",
-      sauce: "소스",
-      mayo: "마요네즈",
-      ketchup: "케첩",
-      olive: gender === "female" ? "올리브오일" : "올리브",
-    };
-
-    const fileName = nameMap[code];
-    return `/images/face/${genderFolder}/얼굴_${fileName}_${
-      genderFolder === "여성" ? "여성" : "남성"
-    }.png`;
+    return `/images/face/${gender}/face_${code}_${gender}.png`;
   };
 
   if (!top1Info) {
