@@ -87,18 +87,20 @@ export function ImageUploader({ onImageProcessed }: ImageUploaderProps) {
   if (preview) {
     return (
       <div className="relative w-full max-w-md mx-auto">
-        <img
-          src={preview}
-          alt="Preview"
-          className="w-full rounded-lg shadow-lg"
-        />
-        <button
-          onClick={clearPreview}
-          className="absolute top-2 right-2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors"
-          aria-label="Clear preview"
-        >
-          <X className="h-4 w-4" />
-        </button>
+        <div className="relative w-full aspect-square bg-muted rounded-lg overflow-hidden shadow-lg">
+          <img
+            src={preview}
+            alt="Preview"
+            className="w-full h-full object-contain"
+          />
+          <button
+            onClick={clearPreview}
+            className="absolute top-2 right-2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors"
+            aria-label="Clear preview"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </div>
       </div>
     );
   }
