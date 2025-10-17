@@ -35,57 +35,47 @@ export default function TermsPage() {
 
           <div className="prose prose-slate max-w-none">
             <section className="space-y-4">
-              <h2 className="text-2xl font-semibold">サービスの目的</h2>
+              <h2 className="text-2xl font-semibold">{t("terms.purpose.title")}</h2>
               <p className="text-muted-foreground leading-relaxed">
-                本サービスは、エンターテインメント目的で提供される顔診断サービスです。
-                診断結果は機械学習モデルによる推定であり、
-                科学的根拠や医学的根拠に基づくものではありません。
+                {t("terms.purpose.content")}
               </p>
             </section>
 
             <section className="space-y-4 mt-8">
-              <h2 className="text-2xl font-semibold">利用規約</h2>
+              <h2 className="text-2xl font-semibold">{t("terms.rules.title")}</h2>
               <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                <li>本サービスは無料で提供されます</li>
-                <li>診断結果の正確性は保証されません</li>
-                <li>本サービスは予告なく変更・終了する場合があります</li>
-                <li>
-                  サービスの利用により生じた損害について、運営者は責任を負いません
-                </li>
+                {(t("terms.rules.items") as string[]).map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
             </section>
 
             <section className="space-y-4 mt-8">
-              <h2 className="text-2xl font-semibold">禁止事項</h2>
+              <h2 className="text-2xl font-semibold">{t("terms.prohibited.title")}</h2>
               <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                <li>他人の写真を無断で使用すること</li>
-                <li>サービスの運営を妨害する行為</li>
-                <li>法令に違反する行為</li>
-                <li>公序良俗に反する行為</li>
+                {(t("terms.prohibited.items") as string[]).map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
             </section>
 
             <section className="space-y-4 mt-8">
-              <h2 className="text-2xl font-semibold">著作権</h2>
+              <h2 className="text-2xl font-semibold">{t("terms.copyright.title")}</h2>
               <p className="text-muted-foreground leading-relaxed">
-                本サービスのコンテンツ（イラスト、テキストなど）の著作権は運営者に帰属します。
-                診断結果の個人的な共有は許可されていますが、
-                商業利用や無断転載は禁止されています。
+                {t("terms.copyright.content")}
               </p>
             </section>
 
             <section className="space-y-4 mt-8">
-              <h2 className="text-2xl font-semibold">免責事項</h2>
+              <h2 className="text-2xl font-semibold">{t("terms.disclaimer.title")}</h2>
               <p className="text-muted-foreground leading-relaxed">
-                本サービスは「現状のまま」提供され、
-                運営者はサービスの完全性、正確性、有用性について一切保証しません。
-                利用者は自己の責任において本サービスを利用するものとします。
+                {t("terms.disclaimer.content")}
               </p>
             </section>
 
             <div className="mt-12 p-4 bg-muted/50 rounded-lg">
               <p className="text-sm text-muted-foreground">
-                最終更新日: 2025年1月
+                {t("terms.lastUpdated")}
               </p>
             </div>
           </div>

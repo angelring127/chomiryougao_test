@@ -93,7 +93,37 @@
   },
   "terms": {
     "title": "Terms of Service",
-    "content": "Terms of service for this website."
+    "purpose": {
+      "title": "Service Purpose",
+      "content": "This service is a face diagnostic service provided for entertainment purposes. Diagnosis results are estimates by machine learning models and are not based on scientific or medical evidence."
+    },
+    "rules": {
+      "title": "Usage Rules",
+      "items": [
+        "This service is provided free of charge",
+        "Accuracy of diagnosis results is not guaranteed",
+        "This service may be changed or terminated without notice",
+        "The operator is not responsible for any damage caused by the use of the service"
+      ]
+    },
+    "prohibited": {
+      "title": "Prohibited Actions",
+      "items": [
+        "Using other people's photos without permission",
+        "Acts that interfere with service operation",
+        "Acts that violate laws and regulations",
+        "Acts contrary to public order and morals"
+      ]
+    },
+    "copyright": {
+      "title": "Copyright",
+      "content": "Copyright of the service content (illustrations, text, etc.) belongs to the operator. Personal sharing of diagnosis results is permitted, but commercial use and unauthorized reproduction are prohibited."
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "content": "This service is provided 'as is,' and the operator makes no warranties regarding the completeness, accuracy, or usefulness of the service. Users use this service at their own risk."
+    },
+    "lastUpdated": "Last Updated: January 2025"
   },
   "nav": {
     "home": "Home",
