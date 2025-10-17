@@ -21,6 +21,7 @@ export function ImageUploader({ onImageProcessed }: ImageUploaderProps) {
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState<ValidationError | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
+  const [previewSize, setPreviewSize] = useState<{ width: number; height: number } | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const cameraInputRef = useRef<HTMLInputElement>(null);
 
@@ -39,6 +40,7 @@ export function ImageUploader({ onImageProcessed }: ImageUploaderProps) {
 
         const processed = await processImage(file);
         setPreview(processed.dataUrl);
+        setPreviewSize({ width: processed.width, height: processed.height });
         setUploadedImage(processed.dataUrl);
         onImageProcessed(processed.dataUrl);
       } catch (err) {
@@ -78,6 +80,7 @@ export function ImageUploader({ onImageProcessed }: ImageUploaderProps) {
 
   const clearPreview = useCallback(() => {
     setPreview(null);
+    setPreviewSize(null);
     setUploadedImage(null);
     setError(null);
     if (fileInputRef.current) fileInputRef.current.value = "";
@@ -85,17 +88,24 @@ export function ImageUploader({ onImageProcessed }: ImageUploaderProps) {
   }, [setUploadedImage]);
 
   if (preview) {
+    const ratioStyle = previewSize
+      ? { aspectRatio: `${previewSize.width} / ${previewSize.height}` }
+      : undefined;
+
     return (
       <div className="relative w-full max-w-md mx-auto">
-        <div className="relative w-full flex items-center justify-center">
+        <div
+          className="relative w-full max-h-[70vh] bg-muted rounded-lg shadow-lg"
+          style={ratioStyle}
+        >
           <img
             src={preview}
             alt="Preview"
-            className="max-w-full max-h-[70vh] h-auto w-auto rounded-lg shadow-lg object-contain"
+            className="w-full h-full object-contain rounded-lg"
           />
           <button
             onClick={clearPreview}
-            className="absolute top-2 right-2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors z-10"
+            className="absolute top-2 right-2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors"
             aria-label="Clear preview"
           >
             <X className="h-4 w-4" />
