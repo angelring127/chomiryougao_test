@@ -87,15 +87,15 @@ export function ImageUploader({ onImageProcessed }: ImageUploaderProps) {
   if (preview) {
     return (
       <div className="relative w-full max-w-md mx-auto">
-        <div className="relative w-full">
+        <div className="relative w-full flex items-center justify-center">
           <img
             src={preview}
             alt="Preview"
-            className="w-full h-auto rounded-lg shadow-lg"
+            className="max-w-full max-h-[70vh] h-auto w-auto rounded-lg shadow-lg object-contain"
           />
           <button
             onClick={clearPreview}
-            className="absolute top-2 right-2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors"
+            className="absolute top-2 right-2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors z-10"
             aria-label="Clear preview"
           >
             <X className="h-4 w-4" />
