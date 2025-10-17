@@ -23,7 +23,18 @@ export function ResultCard({ result, gender = "male" }: ResultCardProps) {
   const top1Percent = formatProbability(result.top1.probability);
 
   const getImagePath = (code: SeasoningCode) => {
-    return `/images/face/${gender}/face_${code}_${gender}.png`;
+    const map: Record<SeasoningCode, string> = {
+      soy_sauce: "/images/choumiryou/syouyu.png",
+      miso: "/images/choumiryou/miso.png",
+      salt: "/images/choumiryou/salt.png",
+      sugar: "/images/choumiryou/sugar.png",
+      vinegar: "/images/choumiryou/osu.png",
+      sauce: "/images/choumiryou/sauce.png",
+      mayo: "/images/choumiryou/mayonnaise.png",
+      ketchup: "/images/choumiryou/ketchup.png",
+      olive: "/images/choumiryou/olive_oil.png",
+    };
+    return map[code];
   };
 
   // 밝은 색상 판별 함수

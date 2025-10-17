@@ -10,8 +10,16 @@ export function GenderToggle() {
   const { t } = useI18n();
 
   const genders: { value: Gender; iconSrc: string; disabled: boolean }[] = [
-    { value: "male", iconSrc: "/images/sexs/gender01_male.png", disabled: false },
-    { value: "female", iconSrc: "/images/sexs/gender02_female.png", disabled: false },
+    {
+      value: "male",
+      iconSrc: "/images/sexs/gender01_male.png",
+      disabled: false,
+    },
+    {
+      value: "female",
+      iconSrc: "/images/sexs/gender02_female.png",
+      disabled: false,
+    },
   ];
 
   return (
