@@ -35,51 +35,43 @@ export default function PrivacyPage() {
 
           <div className="prose prose-slate max-w-none">
             <section className="space-y-4">
-              <h2 className="text-2xl font-semibold">画像の取り扱いについて</h2>
+              <h2 className="text-2xl font-semibold">{t("privacy.imageHandling.title")}</h2>
               <p className="text-muted-foreground leading-relaxed">
-                本サービスでは、アップロードされた画像はすべてお客様のブラウザ内でのみ処理され、
-                サーバーに送信されることはありません。画像データはブラウザのメモリ上にのみ保存され、
-                ページを閉じると完全に削除されます。
+                {t("privacy.imageHandling.content")}
               </p>
             </section>
 
             <section className="space-y-4 mt-8">
-              <h2 className="text-2xl font-semibold">クッキーの使用</h2>
+              <h2 className="text-2xl font-semibold">{t("privacy.cookies.title")}</h2>
               <p className="text-muted-foreground leading-relaxed">
-                本サービスでは、ユーザー体験の向上のために、言語設定などの情報を
-                ブラウザのローカルストレージに保存します。
-                これらの情報は個人を特定するものではありません。
+                {t("privacy.cookies.content")}
               </p>
             </section>
 
             <section className="space-y-4 mt-8">
-              <h2 className="text-2xl font-semibold">アクセス解析</h2>
+              <h2 className="text-2xl font-semibold">{t("privacy.analytics.title")}</h2>
               <p className="text-muted-foreground leading-relaxed">
-                本サービスでは、Google
-                Analyticsを使用してアクセス解析を行っています。
-                これにより収集されるデータは、サービス改善のために使用され、
-                個人を特定する情報は含まれません。
+                {t("privacy.analytics.content")}
               </p>
             </section>
 
             <section className="space-y-4 mt-8">
-              <h2 className="text-2xl font-semibold">広告について</h2>
+              <h2 className="text-2xl font-semibold">{t("privacy.advertising.title")}</h2>
               <p className="text-muted-foreground leading-relaxed">
-                本サービスでは、Google AdSenseによる広告を表示しています。
-                広告配信事業者は、Cookieを使用して興味に基づく広告を配信する場合があります。
+                {t("privacy.advertising.content")}
               </p>
             </section>
 
             <section className="space-y-4 mt-8">
-              <h2 className="text-2xl font-semibold">お問い合わせ</h2>
+              <h2 className="text-2xl font-semibold">{t("privacy.contact.title")}</h2>
               <p className="text-muted-foreground leading-relaxed">
-                本プライバシーポリシーに関するご質問は、サービス管理者までお問い合わせください。
+                {t("privacy.contact.content")}
               </p>
             </section>
 
             <div className="mt-12 p-4 bg-muted/50 rounded-lg">
               <p className="text-sm text-muted-foreground">
-                最終更新日: 2025年1月
+                {t("privacy.lastUpdated")}
               </p>
             </div>
           </div>

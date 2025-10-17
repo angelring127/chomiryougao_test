@@ -12,7 +12,28 @@
   "privacy": {
     "notice": "Images are not stored on the server",
     "title": "Privacy Policy",
-    "description": "Your images are only processed in your browser and are never sent to the server."
+    "description": "Your images are only processed in your browser and are never sent to the server.",
+    "imageHandling": {
+      "title": "Image Handling",
+      "content": "All uploaded images in this service are processed only within your browser and are never sent to the server. Image data is stored only in the browser's memory and is completely deleted when you close the page."
+    },
+    "cookies": {
+      "title": "Cookie Usage",
+      "content": "This service stores information such as language settings in your browser's local storage to improve user experience. This information does not identify individuals."
+    },
+    "analytics": {
+      "title": "Access Analytics",
+      "content": "This service uses Google Analytics to perform access analysis. The data collected is used for service improvement and does not include personally identifiable information."
+    },
+    "advertising": {
+      "title": "About Advertising",
+      "content": "This service displays advertisements through Google AdSense. Advertising distributors may use cookies to deliver interest-based ads."
+    },
+    "contact": {
+      "title": "Contact",
+      "content": "For inquiries regarding this privacy policy, please contact the service administrator."
+    },
+    "lastUpdated": "Last Updated: January 2025"
   },
   "result": {
     "top": "Your seasoning type is",

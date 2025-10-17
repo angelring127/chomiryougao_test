@@ -12,7 +12,28 @@
   "privacy": {
     "notice": "圖片不會儲存在伺服器",
     "title": "隱私權政策",
-    "description": "您的圖片僅在瀏覽器內處理，不會傳送到伺服器。"
+    "description": "您的圖片僅在瀏覽器內處理，不會傳送到伺服器。",
+    "imageHandling": {
+      "title": "圖片處理",
+      "content": "本服務上傳的所有圖片僅在您的瀏覽器內處理，絕不會傳送到伺服器。圖片數據僅儲存在瀏覽器記憶體中，關閉頁面後將完全刪除。"
+    },
+    "cookies": {
+      "title": "Cookie使用",
+      "content": "本服務為了提升使用者體驗，將語言設定等資訊儲存在瀏覽器的本地儲存空間中。這些資訊不會識別個人身份。"
+    },
+    "analytics": {
+      "title": "訪問分析",
+      "content": "本服務使用 Google Analytics 進行訪問分析。收集的數據用於服務改善，不包含可識別個人身份的資訊。"
+    },
+    "advertising": {
+      "title": "關於廣告",
+      "content": "本服務透過 Google AdSense 顯示廣告。廣告發布商可能使用 Cookie 來提供基於興趣的廣告。"
+    },
+    "contact": {
+      "title": "聯絡我們",
+      "content": "有關本隱私權政策的查詢，請聯絡服務管理員。"
+    },
+    "lastUpdated": "最後更新：2025年1月"
   },
   "result": {
     "top": "你的調味料類型是",
