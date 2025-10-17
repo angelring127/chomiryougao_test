@@ -75,7 +75,7 @@ export default function HomePage() {
           <p className="text-base text-muted-foreground max-w-xl mx-auto">
             {t("description")}
           </p>
-          
+
           {/* 조미료 슬라이드 */}
           <SeasoningCarousel />
         </div>
