@@ -48,9 +48,10 @@ export default function TermsPage() {
                 {t("terms.rules.title")}
               </h2>
               <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                {(t("terms.rules.items") as string[]).map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
+                {Array.isArray(t("terms.rules.items")) &&
+                  t("terms.rules.items").map((item: string, index: number) => (
+                    <li key={index}>{item}</li>
+                  ))}
               </ul>
             </section>
 
@@ -59,11 +60,10 @@ export default function TermsPage() {
                 {t("terms.prohibited.title")}
               </h2>
               <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                {(t("terms.prohibited.items") as string[]).map(
-                  (item, index) => (
-                    <li key={index}>{item}</li>
-                  )
-                )}
+                {Array.isArray(t("terms.prohibited.items")) &&
+                  t("terms.prohibited.items").map(
+                    (item: string, index: number) => <li key={index}>{item}</li>
+                  )}
               </ul>
             </section>
 

@@ -116,29 +116,34 @@ export function ResultCard({ result, gender = "male" }: ResultCardProps) {
           </div>
 
           <div className="text-lg text-foreground/80 leading-relaxed max-w-md mx-auto pt-4">
-            {t(top1Info.descKey).split('\n\n').map((section, index) => {
-              if (section.includes('【') && section.includes('】')) {
-                // 얼굴 특징이나 성격 섹션
-                const [title, ...content] = section.split('\n');
-                return (
-                  <div key={index} className="mb-6 last:mb-0">
-                    <h4 className="text-xl font-semibold mb-3 text-primary" style={{ color: top1Info.color }}>
-                      {title}
-                    </h4>
-                    <p className="text-base leading-relaxed">
-                      {content.join('\n')}
+            {String(t(top1Info.descKey))
+              .split("\n\n")
+              .map((section: string, index: number) => {
+                if (section.includes("【") && section.includes("】")) {
+                  // 얼굴 특징이나 성격 섹션
+                  const [title, ...content] = section.split("\n");
+                  return (
+                    <div key={index} className="mb-6 last:mb-0">
+                      <h4
+                        className="text-xl font-semibold mb-3 text-primary"
+                        style={{ color: top1Info.color }}
+                      >
+                        {title}
+                      </h4>
+                      <p className="text-base leading-relaxed">
+                        {content.join("\n")}
+                      </p>
+                    </div>
+                  );
+                } else {
+                  // 일반 설명
+                  return (
+                    <p key={index} className="mb-4 text-base leading-relaxed">
+                      {section}
                     </p>
-                  </div>
-                );
-              } else {
-                // 일반 설명
-                return (
-                  <p key={index} className="mb-4 text-base leading-relaxed">
-                    {section}
-                  </p>
-                );
-              }
-            })}
+                  );
+                }
+              })}
           </div>
         </div>
       </div>

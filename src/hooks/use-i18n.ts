@@ -38,7 +38,7 @@ export function useI18n() {
     }
   }, [language, setLanguage]);
 
-  const t = (key: string, params?: Record<string, string>): string => {
+  const t = (key: string, params?: Record<string, string>): any => {
     const keys = key.split(".");
     let value: any = translations[language || "ja"];
 
@@ -50,11 +50,7 @@ export function useI18n() {
       }
     }
 
-    if (typeof value !== "string") {
-      return key;
-    }
-
-    if (params) {
+    if (typeof value === "string" && params) {
       return Object.entries(params).reduce(
         (acc, [paramKey, paramValue]) =>
           acc.replace(new RegExp(`{{${paramKey}}}`, "g"), paramValue),

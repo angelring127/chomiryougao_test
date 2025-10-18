@@ -36,6 +36,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja" suppressHydrationWarning>
+      <head>
+        {/* Google AdSense - サイト検証用 */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5555878466921311"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className={inter.className} suppressHydrationWarning>
         {/* Teachable Machine ライブラリ */}
         <Script
@@ -69,6 +77,7 @@ export default function RootLayout({
             />
           </>
         )}
+
         <div className="min-h-screen flex flex-col">{children}</div>
       </body>
     </html>

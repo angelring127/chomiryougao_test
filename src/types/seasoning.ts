@@ -39,5 +39,5 @@ export interface AnalysisResult {
 export type Language = "ja" | "ko" | "en" | "zh";
 
 export interface Translation {
-  [key: string]: string | Translation;
+  [key: string]: string | string[] | Translation;
 }
