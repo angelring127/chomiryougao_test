@@ -9,7 +9,7 @@ import koTranslations from "@/../i18n/ko.json";
 import enTranslations from "@/../i18n/en.json";
 import zhTranslations from "@/../i18n/zh.json";
 
-const translations: Record<Language, Translation> = {
+const translations: Record<Language, any> = {
   ja: jaTranslations,
   ko: koTranslations,
   en: enTranslations,
