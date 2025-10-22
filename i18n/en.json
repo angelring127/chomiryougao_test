@@ -128,5 +128,94 @@
   "nav": {
     "home": "Home",
     "about": "About"
+  },
+  "intro": {
+    "title": "What is Japanese Seasoning Face Test?",
+    "description": "Japanese Seasoning Face Test is a fun service that uses AI technology to analyze which Japanese seasoning your face resembles. Find your type among 9 seasoning types: Soy Sauce, Miso, Salt, Sugar, Vinegar, Sauce, Mayonnaise, Ketchup, and Olive Oil!",
+    "features": {
+      "title": "Service Features",
+      "items": [
+        "Precise analysis using AI machine learning technology",
+        "Processed instantly in your browser with no privacy concerns",
+        "Available worldwide with multilingual support",
+        "Share on SNS and enjoy with friends"
+      ]
+    }
+  },
+  "howTo": {
+    "title": "How to Use",
+    "steps": [
+      {
+        "title": "Select Gender",
+        "description": "Choose your gender for more accurate analysis."
+      },
+      {
+        "title": "Upload Photo",
+        "description": "Take a photo directly with your camera or select from your gallery. A front-facing photo with your face clearly visible works best."
+      },
+      {
+        "title": "AI Analysis",
+        "description": "AI automatically analyzes your uploaded photo. Just wait a few seconds!"
+      },
+      {
+        "title": "View & Share Results",
+        "description": "Check your seasoning type and share it with friends on social media!"
+      }
+    ]
+  },
+  "seasoningTypes": {
+    "title": "9 Seasoning Types",
+    "description": "Each seasoning represents unique facial features and personality traits.",
+    "soy_sauce": "Balanced and deep soy sauce type",
+    "miso": "Warm and rich miso type",
+    "salt": "Simple and refined salt type",
+    "sugar": "Sweet and gentle sugar type",
+    "vinegar": "Fresh and stimulating vinegar type",
+    "sauce": "Rich and powerful sauce type",
+    "mayo": "Smooth and creamy mayonnaise type",
+    "ketchup": "Bright and passionate ketchup type",
+    "olive": "Sophisticated and elegant olive oil type"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "Are my photos stored on the server?",
+        "answer": "No! All image processing happens only within your browser and is never sent to or stored on the server. Everything is completely deleted when you close the page."
+      },
+      {
+        "question": "What kind of photo should I use?",
+        "answer": "A photo where your face is clearly visible from the front, taken in good lighting works best. We recommend photos without sunglasses or masks."
+      },
+      {
+        "question": "Are the results accurate?",
+        "answer": "This test is a fun entertainment tool. While it uses AI models, it's not based on scientific or medical evidence."
+      },
+      {
+        "question": "Is it free?",
+        "answer": "Yes! It's completely free to use. No registration or login required."
+      },
+      {
+        "question": "Can I use it on mobile?",
+        "answer": "Absolutely! It works on all devices including smartphones, tablets, and PCs."
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Why Seasoning Face Test?",
+    "items": [
+      {
+        "title": "Fun Self-Discovery",
+        "description": "Discover yourself in a new way through familiar seasonings."
+      },
+      {
+        "title": "Conversation Starter",
+        "description": "Compare results with friends and family for enjoyable conversations."
+      },
+      {
+        "title": "SNS Viral Content",
+        "description": "Share your unique and fun results on social media to create buzz."
+      }
+    ]
   }
 }

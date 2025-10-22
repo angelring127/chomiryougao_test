@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { ImageUploader } from "@/features/upload/components/image-uploader";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { GenderToggle } from "@/components/gender-toggle";
@@ -59,13 +60,8 @@ export default function HomePage() {
 
       {/* メインコンテンツ */}
       <main className="flex-1 container py-8 md:py-12">
-        {/* 広告スロット（上部） */}
-        <div className="mb-8">
-          <AdSlot slotId="top-slot" position="top" />
-        </div>
-
         {/* ヒーローセクション */}
-        <div className="text-center space-y-4 mb-8">
+        <div className="text-center space-y-4 mb-12">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
             {t("title")}
           </h1>
@@ -79,6 +75,38 @@ export default function HomePage() {
           {/* 조미료 슬라이드 */}
           <SeasoningCarousel />
         </div>
+
+        {/* サービス紹介セクション */}
+        <section className="max-w-4xl mx-auto mb-16">
+          <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8 md:p-12">
+            <h2 className="text-3xl font-bold mb-6 text-center">
+              {t("intro.title")}
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-8 text-center">
+              {t("intro.description")}
+            </p>
+
+            <div className="mt-8">
+              <h3 className="text-xl font-semibold mb-4 text-center">
+                {t("intro.features.title")}
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {Array.isArray(t("intro.features.items")) &&
+                  t("intro.features.items").map(
+                    (item: string, index: number) => (
+                      <div
+                        key={index}
+                        className="flex items-start gap-3 bg-background/50 rounded-lg p-4"
+                      >
+                        <Sparkles className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <p className="text-sm">{item}</p>
+                      </div>
+                    )
+                  )}
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* 性別選択 */}
         <div className="flex justify-center mb-12">
@@ -133,6 +161,123 @@ export default function HomePage() {
             🔒 {t("privacy.description")}
           </p>
         </div>
+
+        {/* 広告スロット（中段） */}
+        <div className="my-16">
+          <AdSlot slotId="top-slot" position="top" />
+        </div>
+
+        {/* 使い方セクション */}
+        <section className="max-w-4xl mx-auto mb-16">
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            {t("howTo.title")}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {Array.isArray(t("howTo.steps")) &&
+              t("howTo.steps").map((step: any, index: number) => (
+                <div
+                  key={index}
+                  className="relative bg-card rounded-xl p-6 border shadow-sm"
+                >
+                  <div className="absolute -top-4 -left-4 w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-lg">
+                    {index + 1}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3 mt-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+          </div>
+        </section>
+
+        {/* 調味料タイプ紹介セクション */}
+        <section className="max-w-4xl mx-auto mb-16">
+          <h2 className="text-3xl font-bold mb-4 text-center">
+            {t("seasoningTypes.title")}
+          </h2>
+          <p className="text-center text-muted-foreground mb-8">
+            {t("seasoningTypes.description")}
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4 md:gap-6">
+            {[
+              { type: "soy_sauce", image: "syouyu.png" },
+              { type: "miso", image: "miso.png" },
+              { type: "salt", image: "salt.png" },
+              { type: "sugar", image: "sugar.png" },
+              { type: "vinegar", image: "osu.png" },
+              { type: "sauce", image: "sauce.png" },
+              { type: "mayo", image: "mayonnaise.png" },
+              { type: "ketchup", image: "ketchup.png" },
+              { type: "olive", image: "olive_oil.png" },
+            ].map(({ type, image }) => (
+              <div
+                key={type}
+                className="bg-card rounded-xl p-4 border text-center hover:shadow-lg transition-all hover:scale-105 cursor-pointer group"
+              >
+                <div className="relative w-20 h-20 mx-auto mb-3">
+                  <Image
+                    src={`/images/choumiryou/${image}`}
+                    alt={t(`seasoningTypes.${type}`)}
+                    fill
+                    className="object-contain group-hover:scale-110 transition-transform"
+                  />
+                </div>
+                <p className="font-medium text-sm leading-tight">
+                  {t(`seasoningTypes.${type}`)}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* メリットセクション */}
+        <section className="max-w-4xl mx-auto mb-16">
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            {t("benefits.title")}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {Array.isArray(t("benefits.items")) &&
+              t("benefits.items").map((item: any, index: number) => (
+                <div
+                  key={index}
+                  className="bg-card rounded-xl p-6 border text-center"
+                >
+                  <h3 className="text-lg font-semibold mb-3">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+          </div>
+        </section>
+
+        {/* FAQセクション */}
+        <section className="max-w-4xl mx-auto mb-16">
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            {t("faq.title")}
+          </h2>
+          <div className="space-y-4">
+            {Array.isArray(t("faq.items")) &&
+              t("faq.items").map((item: any, index: number) => (
+                <div
+                  key={index}
+                  className="bg-card rounded-lg p-6 border shadow-sm"
+                >
+                  <h3 className="font-semibold mb-2 flex items-start gap-2">
+                    <span className="text-primary">Q.</span>
+                    {item.question}
+                  </h3>
+                  <p className="text-muted-foreground text-sm pl-6">
+                    <span className="text-primary font-semibold">A.</span>{" "}
+                    {item.answer}
+                  </p>
+                </div>
+              ))}
+          </div>
+        </section>
       </main>
 
       {/* フッター */}

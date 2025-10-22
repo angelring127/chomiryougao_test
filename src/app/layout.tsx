@@ -7,13 +7,30 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "日本の調味料顔診断 | Japanese Seasoning Face Test",
+  title:
+    "日本の調味料顔診断 - AI顔分析で自分のタイプを発見 | Japanese Seasoning Face Test",
   description:
-    "あなたの顔はどの日本の調味料に似ている？写真をアップロードして診断しよう！",
-  keywords: ["調味料", "顔診断", "AI", "日本", "性格診断", "face test"],
+    "あなたの顔はどの日本の調味料に似ている？醤油、味噌、塩、砂糖など9種類の調味料タイプをAI技術で診断。写真をアップロードするだけで簡単・無料。プライバシー保護で安心。SNSでシェアして友達と楽しもう！",
+  keywords: [
+    "調味料",
+    "顔診断",
+    "AI",
+    "日本",
+    "性格診断",
+    "face test",
+    "醤油",
+    "味噌",
+    "顔タイプ",
+    "顔分析",
+    "無料診断",
+    "エンターテインメント",
+    "SNS",
+    "シェア",
+  ],
   openGraph: {
-    title: "日本の調味料顔診断",
-    description: "あなたの顔はどの日本の調味料に似ている？",
+    title: "日本の調味料顔診断 - AI顔分析サービス",
+    description:
+      "AI技術であなたの顔がどの日本の調味料に似ているか診断。9種類の調味料タイプから自分のタイプを発見しよう！",
     type: "website",
     locale: "ja_JP",
     alternateLocale: ["ko_KR", "en_US"],
@@ -21,12 +38,15 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "日本の調味料顔診断",
-    description: "あなたの顔はどの日本の調味料に似ている？",
+    description:
+      "あなたは醤油タイプ？それとも味噌タイプ？AIで顔診断してみよう！",
   },
   robots: {
     index: true,
     follow: true,
   },
+  authors: [{ name: "Japanese Seasoning Face Test" }],
+  category: "Entertainment",
 };
 
 export default function RootLayout({
