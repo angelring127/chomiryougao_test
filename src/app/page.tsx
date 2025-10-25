@@ -14,6 +14,7 @@ import { Sparkles, AlertCircle } from "lucide-react";
 import { trackEvents } from "@/lib/analytics";
 import { useAppStore } from "@/store/app-store";
 import Link from "next/link";
+import seasoningsData from "@/../data/seasonings.json";
 
 export default function HomePage() {
   const { t } = useI18n();
@@ -194,14 +195,14 @@ export default function HomePage() {
         </section>
 
         {/* 調味料タイプ紹介セクション */}
-        <section className="max-w-4xl mx-auto mb-16">
+        <section className="max-w-6xl mx-auto mb-16">
           <h2 className="text-3xl font-bold mb-4 text-center">
             {t("seasoningTypes.title")}
           </h2>
           <p className="text-center text-muted-foreground mb-8">
             {t("seasoningTypes.description")}
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { type: "soy_sauce", image: "syouyu.png" },
               { type: "miso", image: "miso.png" },
@@ -212,24 +213,102 @@ export default function HomePage() {
               { type: "mayo", image: "mayonnaise.png" },
               { type: "ketchup", image: "ketchup.png" },
               { type: "olive", image: "olive_oil.png" },
-            ].map(({ type, image }) => (
-              <div
-                key={type}
-                className="bg-card rounded-xl p-4 border text-center hover:shadow-lg transition-all hover:scale-105 cursor-pointer group"
-              >
-                <div className="relative w-20 h-20 mx-auto mb-3">
-                  <Image
-                    src={`/images/choumiryou/${image}`}
-                    alt={t(`seasoningTypes.${type}`)}
-                    fill
-                    className="object-contain group-hover:scale-110 transition-transform"
-                  />
+            ].map(({ type, image }) => {
+              const seasoningInfo = seasoningsData.find((s) => s.code === type);
+              const description = t(`desc.${type}`).split("\n\n")[0]; // 첫 번째 문단만 표시
+
+              // 밝은 색상 판별 함수
+              const isLightColor = (hexColor: string) => {
+                const hex = hexColor.replace("#", "");
+                const r = parseInt(hex.substr(0, 2), 16);
+                const g = parseInt(hex.substr(2, 2), 16);
+                const b = parseInt(hex.substr(4, 2), 16);
+                const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+                return brightness > 200;
+              };
+
+              // 텍스트 스타일 (밝은 색은 테두리 추가)
+              const getTextStyle = (color: string) => {
+                if (isLightColor(color)) {
+                  return {
+                    color,
+                    textShadow:
+                      "0 0 2px rgba(0,0,0,0.8), 0 0 4px rgba(0,0,0,0.6), 1px 1px 2px rgba(0,0,0,0.5)",
+                    WebkitTextStroke: "0.5px rgba(0,0,0,0.3)",
+                  };
+                }
+                return { color };
+              };
+
+              return (
+                <div
+                  key={type}
+                  className="bg-card rounded-xl p-6 border hover:shadow-lg transition-all hover:scale-105 cursor-pointer group"
+                  style={{
+                    borderColor:
+                      seasoningInfo?.color +
+                      (isLightColor(seasoningInfo?.color || "#000000")
+                        ? "80"
+                        : "60"),
+                    borderWidth: "3px",
+                    boxShadow: isLightColor(seasoningInfo?.color || "#000000")
+                      ? `0 0 0 2px ${seasoningInfo?.color}40, 0 0 0 3px ${seasoningInfo?.color}20, 0 4px 12px rgba(0,0,0,0.1)`
+                      : `0 0 0 1px ${seasoningInfo?.color}30, 0 4px 12px rgba(0,0,0,0.1)`,
+                  }}
+                >
+                  <div className="text-center mb-4">
+                    <div className="relative w-24 h-24 mx-auto mb-4">
+                      <Image
+                        src={`/images/choumiryou/${image}`}
+                        alt={t(`seasoningTypes.${type}`)}
+                        fill
+                        className="object-contain group-hover:scale-110 transition-transform"
+                      />
+                    </div>
+                    <h3
+                      className="font-bold text-lg mb-2"
+                      style={getTextStyle(seasoningInfo?.color || "#000000")}
+                    >
+                      {t(`seasoningTypes.${type}`)}
+                    </h3>
+                  </div>
+
+                  <div className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="line-clamp-3">{description}</p>
+                  </div>
+
+                  {/* 특징 하이라이트 */}
+                  <div className="mt-4 pt-4 border-t border-muted">
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <span
+                        className="px-3 py-1 rounded-full text-xs font-medium"
+                        style={{
+                          backgroundColor: seasoningInfo?.color + "30",
+                          color: seasoningInfo?.color,
+                          textShadow: isLightColor(
+                            seasoningInfo?.color || "#000000"
+                          )
+                            ? "0 0 2px rgba(0,0,0,0.8), 0 0 4px rgba(0,0,0,0.6), 1px 1px 2px rgba(0,0,0,0.5)"
+                            : "none",
+                          WebkitTextStroke: isLightColor(
+                            seasoningInfo?.color || "#000000"
+                          )
+                            ? "0.3px rgba(0,0,0,0.3)"
+                            : "none",
+                          border: isLightColor(
+                            seasoningInfo?.color || "#000000"
+                          )
+                            ? `1px solid ${seasoningInfo?.color}60`
+                            : "none",
+                        }}
+                      >
+                        {t("seasoningTypes." + type)}
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <p className="font-medium text-sm leading-tight">
-                  {t(`seasoningTypes.${type}`)}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 

@@ -47,13 +47,14 @@ export function ResultCard({ result, gender = "male" }: ResultCardProps) {
     return brightness > 200;
   };
 
-  // 텍스트 스타일 (밝은 색은 검은 그림자 추가)
+  // 텍스트 스타일 (밝은 색은 검은 그림자와 테두리 추가)
   const getTextStyle = (color: string) => {
     if (isLightColor(color)) {
       return {
         color,
         textShadow:
-          "0 0 2px rgba(0,0,0,0.8), 0 0 4px rgba(0,0,0,0.6), 1px 1px 2px rgba(0,0,0,0.5)",
+          "0 0 3px rgba(0,0,0,0.9), 0 0 6px rgba(0,0,0,0.7), 0 0 9px rgba(0,0,0,0.5), 1px 1px 3px rgba(0,0,0,0.8)",
+        WebkitTextStroke: "0.5px rgba(0,0,0,0.3)",
       };
     }
     return { color };
@@ -116,7 +117,9 @@ export function ResultCard({ result, gender = "male" }: ResultCardProps) {
           </div>
 
           <div className="text-lg text-foreground/80 leading-relaxed max-w-md mx-auto pt-4">
-            {String(t(top1Info.descKey))
+            {String(
+              t(`${top1Info.descKey}${gender === "female" ? "_female" : ""}`)
+            )
               .split("\n\n")
               .map((section: string, index: number) => {
                 if (section.includes("【") && section.includes("】")) {
@@ -126,7 +129,7 @@ export function ResultCard({ result, gender = "male" }: ResultCardProps) {
                     <div key={index} className="mb-6 last:mb-0">
                       <h4
                         className="text-xl font-semibold mb-3 text-primary"
-                        style={{ color: top1Info.color }}
+                        style={getTextStyle(top1Info.color)}
                       >
                         {title}
                       </h4>
