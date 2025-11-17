@@ -163,11 +163,6 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* 広告スロット（中段） */}
-        <div className="my-16">
-          <AdSlot slotId="top-slot" position="top" />
-        </div>
-
         {/* 使い方セクション */}
         <section className="max-w-4xl mx-auto mb-16">
           <h2 className="text-3xl font-bold mb-8 text-center">
@@ -357,6 +352,11 @@ export default function HomePage() {
               ))}
           </div>
         </section>
+
+        {/* 広告スロット（下部） */}
+        <div className="max-w-4xl mx-auto mb-16">
+          <AdSlot slotId="top-slot" position="top" />
+        </div>
       </main>
 
       {/* フッター */}

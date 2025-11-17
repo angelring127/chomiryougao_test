@@ -13,6 +13,7 @@ import { ArrowLeft, Sparkles } from "lucide-react";
 import Link from "next/link";
 import type { AnalysisResult, InferenceResult } from "@/types/seasoning";
 import modelVersionData from "@/../data/model_versions.json";
+import seasoningsData from "@/../data/seasonings.json";
 
 export function ResultContent() {
   const { t } = useI18n();
@@ -124,10 +125,118 @@ export function ResultContent() {
             </button>
           </div>
 
+          {/* 結果詳細セクション */}
+          <section className="max-w-3xl mx-auto mt-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
+              {t("result.aboutYourType")}
+            </h2>
+            <div className="bg-card rounded-xl p-6 md:p-8 border shadow-sm">
+              <div className="prose prose-slate max-w-none">
+                <div className="text-base md:text-lg text-muted-foreground leading-relaxed whitespace-pre-line">
+                  {t(`desc.${gender === "female" && displayResult.top1.code !== "olive" ? displayResult.top1.code + "_female" : displayResult.top1.code}`)}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* 他の調味料タイプ紹介 */}
+          <section className="max-w-4xl mx-auto mt-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
+              {t("result.otherTypes")}
+            </h2>
+            <p className="text-center text-muted-foreground mb-8">
+              {t("result.otherTypesDesc")}
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {displayResult.top3.slice(1, 3).map((result) => {
+                const seasoningInfo = seasoningsData.find(
+                  (s) => s.code === result.code
+                );
+                const genderCode =
+                  gender === "female" && result.code !== "olive"
+                    ? result.code + "_female"
+                    : result.code;
+                const description = t(`desc.${genderCode}`)
+                  .split("\n\n")[0]
+                  .substring(0, 150) + "...";
+                const percentage = formatProbability(result.probability);
+
+                return (
+                  <div
+                    key={result.code}
+                    className="bg-card rounded-xl p-6 border hover:shadow-lg transition-all"
+                  >
+                    <div className="flex items-center gap-4 mb-4">
+                      <div
+                        className="w-3 h-3 rounded-full"
+                        style={{ backgroundColor: seasoningInfo?.color }}
+                      />
+                      <h3 className="font-bold text-xl">
+                        {t(`seasoningTypes.${result.code}`)}
+                      </h3>
+                      <span className="ml-auto text-2xl font-bold text-primary">
+                        {percentage}%
+                      </span>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* FAQセクション */}
+          <section className="max-w-3xl mx-auto mt-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
+              {t("faq.title")}
+            </h2>
+            <div className="space-y-4">
+              {Array.isArray(t("faq.items")) &&
+                t("faq.items")
+                  .slice(0, 3)
+                  .map((item: any, index: number) => (
+                    <div
+                      key={index}
+                      className="bg-card rounded-lg p-6 border shadow-sm"
+                    >
+                      <h3 className="font-semibold mb-2 flex items-start gap-2">
+                        <span className="text-primary">Q.</span>
+                        {item.question}
+                      </h3>
+                      <p className="text-muted-foreground text-sm pl-6">
+                        <span className="text-primary font-semibold">A.</span>{" "}
+                        {item.answer}
+                      </p>
+                    </div>
+                  ))}
+            </div>
+          </section>
+
           {/* 広告スロット（下部） */}
-          <div className="mt-12">
+          <div className="mt-16">
             <AdSlot slotId="bottom-slot" position="bottom" />
           </div>
+
+          {/* 再試行促進セクション */}
+          <section className="max-w-2xl mx-auto mt-12 text-center">
+            <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8">
+              <h2 className="text-2xl font-bold mb-4">
+                {t("result.tryDifferentPhoto")}
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                {t("result.tryDifferentPhotoDesc")}
+              </p>
+              <button
+                onClick={handleRetry}
+                className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-bold text-lg hover:bg-primary/90 transition-all hover:scale-105 active:scale-95 shadow-lg inline-flex items-center gap-2"
+              >
+                <ArrowLeft className="h-5 w-5" />
+                {t("cta.retake")}
+              </button>
+            </div>
+          </section>
         </div>
       </main>
 

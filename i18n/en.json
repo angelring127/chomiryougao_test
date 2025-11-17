@@ -15,7 +15,7 @@
     "description": "Your images are only processed in your browser and are never sent to the server.",
     "imageHandling": {
       "title": "Image Handling",
-      "content": "All uploaded images in this service are processed only within your browser and are never sent to the server. Image data is stored only in the browser's memory and is completely deleted when you close the page."
+      "content": "All uploaded images in this service are processed only within your browser and are never sent to the server. Image data is stored only in the browser's memory and is completely deleted when you close the page.\n\nSpecifically, uploaded images are loaded into browser memory via JavaScript's FileReader API, and the Teachable Machine AI model performs analysis on the client side. At no point during this process are images transmitted to or stored on external servers.\n\nAdditionally, analysis results are only temporarily stored in your browser's session storage and are automatically deleted when you close the browser or the session ends. This design prioritizes user privacy protection."
     },
     "cookies": {
       "title": "Cookie Usage",
@@ -23,11 +23,11 @@
     },
     "analytics": {
       "title": "Access Analytics",
-      "content": "This service uses Google Analytics to perform access analysis. The data collected is used for service improvement and does not include personally identifiable information."
+      "content": "This service uses Google Analytics 4 (GA4) for access analysis. Collected information includes page views, visit duration, browser used, country/region, device type, and more.\n\nThis data is used for service improvement, user experience optimization, and technical issue resolution. Collected data is anonymized and does not include directly identifiable information (name, email, phone number, etc.).\n\nFor more details on Google Analytics data processing, please refer to Google's Privacy Policy (https://policies.google.com/privacy)."
     },
     "advertising": {
       "title": "About Advertising",
-      "content": "This service displays advertisements through Google AdSense. Advertising distributors may use cookies to deliver interest-based ads."
+      "content": "This service is provided free of charge and displays advertisements through Google AdSense to cover operating costs.\n\nGoogle AdSense uses cookies and similar technologies to display ads tailored to users' interests. Users can disable personalized advertising on Google's Ads Settings page (https://www.google.com/settings/ads).\n\nInformation collected through advertising is processed according to Google's Privacy Policy, and this service does not directly access or store this information. Ad display is optimized to not affect service quality."
     },
     "contact": {
       "title": "Contact",
@@ -39,7 +39,12 @@
     "top": "Your seasoning type is",
     "mix": "Your seasoning mix",
     "compatibility": "Compatibility",
-    "tryAgain": "Try Again"
+    "tryAgain": "Try Again",
+    "aboutYourType": "About Your Seasoning Type",
+    "otherTypes": "Your Other Seasoning Elements",
+    "otherTypesDesc": "Your face also contains these seasoning elements",
+    "tryDifferentPhoto": "Try with a different photo!",
+    "tryDifferentPhotoDesc": "Analyzing photos from various angles or expressions may yield different results. Try it with photos of friends or family too!"
   },
   "share": {
     "text": "I'm {{name}} {{percent}}%! What about you?",

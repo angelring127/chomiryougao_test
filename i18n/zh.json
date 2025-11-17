@@ -39,7 +39,12 @@
     "top": "你的調味料類型是",
     "mix": "你的調味料組合",
     "compatibility": "相容度",
-    "tryAgain": "再試一次"
+    "tryAgain": "再試一次",
+    "aboutYourType": "關於你的調味料類型",
+    "otherTypes": "你的其他調味料元素",
+    "otherTypesDesc": "你的臉孔也包含這些調味料元素",
+    "tryDifferentPhoto": "用不同的照片試試看！",
+    "tryDifferentPhotoDesc": "用不同角度或表情的照片進行分析可能會得到不同的結果。也試試朋友或家人的照片吧！"
   },
   "share": {
     "text": "我是{{name}} {{percent}}%！你呢？",

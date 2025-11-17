@@ -38,45 +38,45 @@ export default function PrivacyPage() {
               <h2 className="text-2xl font-semibold">
                 {t("privacy.imageHandling.title")}
               </h2>
-              <p className="text-muted-foreground leading-relaxed">
+              <div className="text-muted-foreground leading-relaxed whitespace-pre-line">
                 {t("privacy.imageHandling.content")}
-              </p>
+              </div>
             </section>
 
             <section className="space-y-4 mt-8">
               <h2 className="text-2xl font-semibold">
                 {t("privacy.cookies.title")}
               </h2>
-              <p className="text-muted-foreground leading-relaxed">
+              <div className="text-muted-foreground leading-relaxed whitespace-pre-line">
                 {t("privacy.cookies.content")}
-              </p>
+              </div>
             </section>
 
             <section className="space-y-4 mt-8">
               <h2 className="text-2xl font-semibold">
                 {t("privacy.analytics.title")}
               </h2>
-              <p className="text-muted-foreground leading-relaxed">
+              <div className="text-muted-foreground leading-relaxed whitespace-pre-line">
                 {t("privacy.analytics.content")}
-              </p>
+              </div>
             </section>
 
             <section className="space-y-4 mt-8">
               <h2 className="text-2xl font-semibold">
                 {t("privacy.advertising.title")}
               </h2>
-              <p className="text-muted-foreground leading-relaxed">
+              <div className="text-muted-foreground leading-relaxed whitespace-pre-line">
                 {t("privacy.advertising.content")}
-              </p>
+              </div>
             </section>
 
             <section className="space-y-4 mt-8">
               <h2 className="text-2xl font-semibold">
                 {t("privacy.contact.title")}
               </h2>
-              <p className="text-muted-foreground leading-relaxed">
+              <div className="text-muted-foreground leading-relaxed whitespace-pre-line">
                 {t("privacy.contact.content")}
-              </p>
+              </div>
             </section>
 
             <div className="mt-12 p-4 bg-muted/50 rounded-lg">
