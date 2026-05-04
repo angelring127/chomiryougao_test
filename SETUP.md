@@ -79,12 +79,12 @@ npm run start
 
 ## 📝 추가 설정
 
-### Teachable Machine 모델 추가 (나중에)
+### Teachable Machine 모델 교체
 
 1. Teachable Machine에서 모델 학습
 2. 모델 내보내기 (TensorFlow.js)
-3. \`/public/models/teachable/\` 폴더에 파일 복사
-4. \`src/features/inference/lib/inference-engine.ts\` 파일에서 실제 모델 로딩 코드 활성화
+3. 모델을 호스팅하거나 공개 URL 준비
+4. \`src/features/inference/lib/inference-engine.ts\` 파일의 \`MODEL_URLS\` 수정
 
 ### Google Analytics 설정
 
@@ -104,8 +104,8 @@ npm run start
 
 ## ⚠️ 주의사항
 
-- **여성 이미지**: 현재 5종류만 있습니다 (미소, 설탕, 소금, 소스, 올리브오일). 나머지 이미지를 추가할 예정이면 같은 명명 규칙을 따라주세요.
-- **모델 파일**: 현재는 더미 데이터로 작동합니다. 실제 Teachable Machine 모델을 추가해야 합니다.
+- **여성 이미지**: 현재 여성 모델에서 사용하는 8종류 이미지가 준비되어 있습니다. 올리브오일은 남성 전용입니다.
+- **모델 파일**: 현재는 Teachable Machine 공개 모델 URL을 사용합니다. 프로덕션에서는 추론 실패 시 랜덤 결과를 노출하지 않습니다.
 - **환경변수**: GA4와 AdSense는 선택사항이며, 없어도 앱은 정상 작동합니다.
 
 ## 🐛 문제 해결

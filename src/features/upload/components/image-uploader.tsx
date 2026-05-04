@@ -11,7 +11,7 @@ import {
 } from "../lib/image-processor";
 
 interface ImageUploaderProps {
-  onImageProcessed: (dataUrl: string) => void;
+  onImageProcessed: (dataUrl: string | null) => void;
 }
 
 export function ImageUploader({ onImageProcessed }: ImageUploaderProps) {
@@ -79,10 +79,11 @@ export function ImageUploader({ onImageProcessed }: ImageUploaderProps) {
   const clearPreview = useCallback(() => {
     setPreview(null);
     setUploadedImage(null);
+    onImageProcessed(null);
     setError(null);
     if (fileInputRef.current) fileInputRef.current.value = "";
     if (cameraInputRef.current) cameraInputRef.current.value = "";
-  }, [setUploadedImage]);
+  }, [onImageProcessed, setUploadedImage]);
 
   if (preview) {
     return (

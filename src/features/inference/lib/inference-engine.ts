@@ -81,6 +81,10 @@ function generateDummyProbabilities(
   }));
 }
 
+function canUseDummyInference(): boolean {
+  return process.env.NODE_ENV !== "production";
+}
+
 export async function runInference(
   imageDataUrl: string,
   gender: Gender = "male"
@@ -134,15 +138,24 @@ export async function runInference(
     });
 
     if (filteredResults.length === 0) {
-      console.warn("No valid results, using dummy data");
-      return generateDummyProbabilities(gender);
+      if (canUseDummyInference()) {
+        console.warn("No valid results, using dummy data in development");
+        return generateDummyProbabilities(gender);
+      }
+
+      throw new Error("No valid prediction results returned from model");
     }
 
     return filteredResults;
   } catch (error) {
     console.error("Inference error:", error);
-    // エラー時はダミーデータを返す
-    return generateDummyProbabilities(gender);
+
+    if (canUseDummyInference()) {
+      console.warn("Using dummy inference result in development");
+      return generateDummyProbabilities(gender);
+    }
+
+    throw error;
   }
 }
 

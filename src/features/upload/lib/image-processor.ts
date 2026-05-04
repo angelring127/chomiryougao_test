@@ -83,6 +83,8 @@ function getOrientation(file: File): Promise<number> {
 }
 
 export async function processImage(file: File): Promise<ProcessedImage> {
+  const orientation = await getOrientation(file);
+
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
 
@@ -98,9 +100,12 @@ export async function processImage(file: File): Promise<ProcessedImage> {
           return;
         }
 
-        let { width, height } = img;
+        const swapsDimensions = orientation >= 5 && orientation <= 8;
+        const sourceWidth = img.width;
+        const sourceHeight = img.height;
+        let width = swapsDimensions ? sourceHeight : sourceWidth;
+        let height = swapsDimensions ? sourceWidth : sourceHeight;
 
-        // 리사이즈만 수행 (EXIF 회전 처리 제거)
         if (width > RECOMMENDED_WIDTH) {
           const scale = RECOMMENDED_WIDTH / width;
           width = RECOMMENDED_WIDTH;
@@ -114,8 +119,35 @@ export async function processImage(file: File): Promise<ProcessedImage> {
         ctx.fillStyle = "#FFFFFF";
         ctx.fillRect(0, 0, width, height);
 
-        // 이미지 그리기
-        ctx.drawImage(img, 0, 0, width, height);
+        switch (orientation) {
+          case 2:
+            ctx.transform(-1, 0, 0, 1, width, 0);
+            break;
+          case 3:
+            ctx.transform(-1, 0, 0, -1, width, height);
+            break;
+          case 4:
+            ctx.transform(1, 0, 0, -1, 0, height);
+            break;
+          case 5:
+            ctx.transform(0, 1, 1, 0, 0, 0);
+            break;
+          case 6:
+            ctx.transform(0, 1, -1, 0, width, 0);
+            break;
+          case 7:
+            ctx.transform(0, -1, -1, 0, width, height);
+            break;
+          case 8:
+            ctx.transform(0, -1, 1, 0, 0, height);
+            break;
+        }
+
+        if (swapsDimensions) {
+          ctx.drawImage(img, 0, 0, height, width);
+        } else {
+          ctx.drawImage(img, 0, 0, width, height);
+        }
 
         resolve({
           dataUrl: canvas.toDataURL("image/jpeg", 0.95),

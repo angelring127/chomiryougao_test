@@ -3,13 +3,14 @@
 import { useState } from "react";
 import { Share2, Copy, Check } from "lucide-react";
 import { useI18n } from "@/hooks/use-i18n";
-import type { SeasoningCode, InferenceResult } from "@/types/seasoning";
+import type { SeasoningCode, InferenceResult, Gender } from "@/types/seasoning";
 import seasoningsData from "@/../data/seasonings.json";
 
 interface ShareButtonsProps {
   topSeasoningCode: SeasoningCode;
   percentage: string;
   top3Results: InferenceResult[];
+  gender: Gender;
 }
 
 const SHARE_CHANNELS = [
@@ -23,6 +24,7 @@ export function ShareButtons({
   topSeasoningCode,
   percentage,
   top3Results,
+  gender,
 }: ShareButtonsProps) {
   const { t, language } = useI18n();
   const [copied, setCopied] = useState(false);
@@ -44,7 +46,7 @@ export function ShareButtons({
 
   const shareUrl =
     typeof window !== "undefined"
-      ? `${window.location.origin}/result?r=${encodeResults()}`
+      ? `${window.location.origin}/result?g=${gender}&r=${encodeResults()}`
       : "";
 
   const handleShare = (channel: string) => {

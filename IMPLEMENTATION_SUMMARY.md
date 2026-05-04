@@ -14,12 +14,12 @@
 
 - ✅ `data/seasonings.json` - 9종류 조미료 정의 (남성 9종, 여성 8종)
 - ✅ `data/model_versions.json` - 모델 버전 정보
-- ✅ `i18n/{ja,ko,en}.json` - 3개 언어 완전 번역
+- ✅ `i18n/{ja,ko,en,zh}.json` - 4개 언어 완전 번역
 - ✅ `src/types/seasoning.ts` - TypeScript 타입 정의
 
 ### Phase 3: 공통 컴포넌트 구현 ✅
 
-- ✅ `LanguageSwitcher` - JA/KO/EN 언어 전환
+- ✅ `LanguageSwitcher` - JA/KO/EN/ZH 언어 전환
 - ✅ `AdSlot` - AdSense 통합 (레이지 로딩)
 
 ### Phase 4: 업로드 기능 구현 ✅
@@ -33,12 +33,13 @@
   - 리사이즈 (640px 최적화)
   - 파일 검증 (5MB 제한, JPG/PNG)
 
-### Phase 5: 모델 추론 기능 (더미) ✅
+### Phase 5: 모델 추론 기능 ✅
 
 - ✅ `useInference` 훅
-- ✅ 더미 확률 생성 (성별 기반)
+- ✅ Teachable Machine 모델 추론
+- ✅ 개발 환경용 더미 확률 fallback
 - ✅ Top 3 결과 계산
-- ✅ TensorFlow.js 통합 준비 완료
+- ✅ TensorFlow.js 통합
 
 ### Phase 6: 결과 화면 구현 ✅
 
@@ -122,6 +123,7 @@
 - `i18n/ja.json`
 - `i18n/ko.json`
 - `i18n/en.json`
+- `i18n/zh.json`
 
 ### 타입 정의
 
@@ -185,21 +187,21 @@ npx shadcn@latest add dialog
 npm run dev
 \`\`\`
 
-### 2. Teachable Machine 모델 추가 (나중에)
+### 2. Teachable Machine 모델 관리
 
-현재는 더미 데이터로 작동합니다. 실제 모델을 추가하려면:
+현재 남성/여성 Teachable Machine 모델 URL이 연결되어 있습니다. 모델을 교체하려면:
 
 1. Teachable Machine에서 모델 학습
 2. TensorFlow.js로 내보내기
-3. `/public/models/teachable/` 폴더에 저장
-4. `src/features/inference/lib/inference-engine.ts` 수정
+3. 모델을 호스팅하거나 공개 URL을 준비
+4. `src/features/inference/lib/inference-engine.ts`의 `MODEL_URLS` 수정
 
 ### 3. 여성 이미지 추가 (필요시)
 
-현재 여성 이미지는 5종류만 있습니다:
+현재 여성 이미지는 8종류가 있습니다:
 
-- ✅ 미소, 설탕, 소금, 소스, 올리브오일
-- ❌ 간장, 마요네즈, 식초, 케첩
+- ✅ 간장, 미소, 설탕, 소금, 소스, 마요네즈, 식초, 케첩
+- ❌ 올리브오일
 
 추가 예정이시면 같은 명명 규칙을 따라주세요:
 \`얼굴*{조미료명}*여성.png\`
@@ -248,15 +250,15 @@ npm run build
 
 ### 여성 (8종)
 
-마요네즈, 식초, 케첩 제외
+올리브오일 제외
 
 ## 📊 현재 상태
 
 - ✅ **프론트엔드**: 100% 완성
-- ✅ **i18n**: 100% 완성 (JA/KO/EN)
+- ✅ **i18n**: 100% 완성 (JA/KO/EN/ZH)
 - ✅ **UI/UX**: 100% 완성
-- ⏳ **모델**: 더미 데이터 (TM 모델 추가 필요)
-- ⏳ **이미지**: 남성 100%, 여성 62.5%
+- ✅ **모델**: Teachable Machine 모델 연결 완료
+- ✅ **이미지**: 남성 100%, 여성 100%
 
 ## 🔧 기술 스택
 
@@ -265,7 +267,7 @@ npm run build
 - Tailwind CSS
 - Zustand (상태 관리)
 - shadcn/ui
-- TensorFlow.js (준비됨)
+- TensorFlow.js
 - Google Analytics 4
 - Vercel 배포
 
@@ -273,7 +275,7 @@ npm run build
 
 ✅ **100% 완성**
 
-모든 핵심 기능이 구현되었으며, Teachable Machine 모델만 추가하면 즉시 배포 가능합니다!
+모든 핵심 기능이 구현되었으며, Teachable Machine 모델도 연결되어 즉시 배포 가능합니다!
 
 ---
 

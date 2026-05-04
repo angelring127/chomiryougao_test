@@ -11,58 +11,189 @@ import { LanguageSwitcher } from "@/components/language-switcher";
 import { formatProbability } from "@/features/inference/lib/inference-engine";
 import { ArrowLeft, Sparkles } from "lucide-react";
 import Link from "next/link";
-import type { AnalysisResult, InferenceResult } from "@/types/seasoning";
+import type {
+  AnalysisResult,
+  Gender,
+  InferenceResult,
+  SeasoningCode,
+} from "@/types/seasoning";
 import modelVersionData from "@/../data/model_versions.json";
 import seasoningsData from "@/../data/seasonings.json";
+
+const VALID_GENDERS: Gender[] = ["male", "female"];
+const VALID_CODES = new Set<SeasoningCode>(
+  seasoningsData.map((seasoning) => seasoning.code as SeasoningCode)
+);
+
+function isValidGender(value: string | null): value is Gender {
+  return VALID_GENDERS.includes(value as Gender);
+}
+
+function isValidSeasoningCode(value: string): value is SeasoningCode {
+  return VALID_CODES.has(value as SeasoningCode);
+}
+
+function isAvailableForGender(code: SeasoningCode, gender: Gender): boolean {
+  return Boolean(
+    seasoningsData
+      .find((seasoning) => seasoning.code === code)
+      ?.availableFor.includes(gender)
+  );
+}
+
+function parseSharedResults(
+  resultsParam: string,
+  gender: Gender
+): InferenceResult[] | null {
+  const parts = resultsParam.split(",");
+
+  if (parts.length !== 3) {
+    return null;
+  }
+
+  const seenCodes = new Set<SeasoningCode>();
+  const top3: InferenceResult[] = [];
+
+  for (const part of parts) {
+    const [code, percent, extra] = part.split(":");
+    const parsedPercent = Number(percent);
+
+    if (
+      extra !== undefined ||
+      !code ||
+      !isValidSeasoningCode(code) ||
+      !isAvailableForGender(code, gender) ||
+      seenCodes.has(code) ||
+      !Number.isFinite(parsedPercent) ||
+      parsedPercent < 0 ||
+      parsedPercent > 100
+    ) {
+      return null;
+    }
+
+    seenCodes.add(code);
+    top3.push({
+      code,
+      probability: parsedPercent / 100,
+    });
+  }
+
+  return top3;
+}
+
+function isValidInferenceResults(
+  results: InferenceResult[],
+  gender: Gender
+): boolean {
+  if (results.length !== 3) {
+    return false;
+  }
+
+  const seenCodes = new Set<SeasoningCode>();
+
+  return results.every((result) => {
+    if (
+      !isValidSeasoningCode(result.code) ||
+      !isAvailableForGender(result.code, gender) ||
+      seenCodes.has(result.code) ||
+      !Number.isFinite(result.probability) ||
+      result.probability < 0 ||
+      result.probability > 1
+    ) {
+      return false;
+    }
+
+    seenCodes.add(result.code);
+    return true;
+  });
+}
+
+function isValidAnalysisResult(
+  result: AnalysisResult | null,
+  gender: Gender
+): result is AnalysisResult {
+  return Boolean(
+    result &&
+      result.top1.code === result.top3[0]?.code &&
+      isValidInferenceResults(result.top3, gender)
+  );
+}
 
 export function ResultContent() {
   const { t } = useI18n();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { analysisResult, gender, clearAll, setAnalysisResult } = useAppStore();
+  const {
+    analysisResult,
+    gender,
+    clearAll,
+    setAnalysisResult,
+    setGender,
+  } = useAppStore();
   const [mounted, setMounted] = useState(false);
   const [displayResult, setDisplayResult] = useState<AnalysisResult | null>(
     null
   );
+  const [hasInvalidSharedResult, setHasInvalidSharedResult] = useState(false);
+  const resultsParam = searchParams.get("r");
+  const sharedGenderParam = searchParams.get("g");
 
   useEffect(() => {
     setMounted(true);
-
-    const resultsParam = searchParams.get("r");
-    if (resultsParam && !analysisResult) {
-      try {
-        const parts = resultsParam.split(",");
-        const top3: InferenceResult[] = parts.map((part) => {
-          const [code, percent] = part.split(":");
-          return {
-            code: code as any,
-            probability: parseInt(percent) / 100,
-          };
-        });
-
-        if (top3.length > 0) {
-          const restoredResult: AnalysisResult = {
-            top1: top3[0],
-            top3: top3,
-            timestamp: Date.now(),
-            modelVersion: modelVersionData.current,
-          };
-          setDisplayResult(restoredResult);
-          setAnalysisResult(restoredResult);
-        }
-      } catch (error) {
-        console.error("Failed to parse URL results:", error);
-      }
-    } else if (analysisResult) {
-      setDisplayResult(analysisResult);
-    }
-  }, [searchParams, analysisResult, setAnalysisResult]);
+  }, []);
 
   useEffect(() => {
-    if (mounted && !displayResult && !searchParams.get("r")) {
+    if (!resultsParam) {
+      setHasInvalidSharedResult(false);
+      return;
+    }
+
+    const restoredGender = isValidGender(sharedGenderParam)
+      ? sharedGenderParam
+      : "male";
+    const top3 = parseSharedResults(resultsParam, restoredGender);
+
+    if (!top3) {
+      setHasInvalidSharedResult(true);
+      setDisplayResult(null);
+      return;
+    }
+
+    const restoredResult: AnalysisResult = {
+      top1: top3[0],
+      top3,
+      timestamp: Date.now(),
+      modelVersion: modelVersionData.current,
+    };
+    setHasInvalidSharedResult(false);
+    setGender(restoredGender);
+    setDisplayResult(restoredResult);
+    setAnalysisResult(restoredResult);
+  }, [resultsParam, sharedGenderParam, setAnalysisResult, setGender]);
+
+  useEffect(() => {
+    if (resultsParam) {
+      return;
+    }
+
+    if (isValidAnalysisResult(analysisResult, gender)) {
+      setDisplayResult(analysisResult);
+      return;
+    }
+
+    setAnalysisResult(null);
+    setDisplayResult(null);
+  }, [resultsParam, analysisResult, gender, setAnalysisResult]);
+
+  useEffect(() => {
+    if (
+      mounted &&
+      !displayResult &&
+      (!resultsParam || hasInvalidSharedResult)
+    ) {
       router.push("/");
     }
-  }, [mounted, displayResult, searchParams, router]);
+  }, [mounted, displayResult, resultsParam, hasInvalidSharedResult, router]);
 
   if (!mounted || !displayResult) {
     return (
@@ -112,6 +243,7 @@ export function ResultContent() {
             topSeasoningCode={displayResult.top1.code}
             percentage={top1Percent}
             top3Results={displayResult.top3}
+            gender={gender}
           />
 
           {/* アクションボタン */}

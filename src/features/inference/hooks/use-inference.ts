@@ -47,8 +47,10 @@ export function useInference(): UseInferenceResult {
       } catch (err) {
         const errorMessage =
           err instanceof Error ? err.message : "Unknown error";
+        setAnalysisResult(null);
         setError(errorMessage);
         console.error("Inference error:", err);
+        throw err;
       } finally {
         setIsLoading(false);
       }

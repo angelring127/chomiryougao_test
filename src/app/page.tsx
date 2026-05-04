@@ -23,9 +23,11 @@ export default function HomePage() {
   const { gender } = useAppStore();
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
 
-  const handleImageProcessed = async (dataUrl: string) => {
+  const handleImageProcessed = async (dataUrl: string | null) => {
     setUploadedImage(dataUrl);
-    trackEvents.uploadSuccess();
+    if (dataUrl) {
+      trackEvents.uploadSuccess();
+    }
   };
 
   const handleAnalyze = async () => {
