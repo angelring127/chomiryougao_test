@@ -33,7 +33,7 @@ export const metadata: Metadata = {
       "AI技術であなたの顔がどの日本の調味料に似ているか診断。9種類の調味料タイプから自分のタイプを発見しよう！",
     type: "website",
     locale: "ja_JP",
-    alternateLocale: ["ko_KR", "en_US"],
+    alternateLocale: ["ko_KR", "en_US", "zh_TW"],
   },
   twitter: {
     card: "summary_large_image",
@@ -56,14 +56,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja" suppressHydrationWarning>
-      <head>
-        {/* Google AdSense - サイト検証用 */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5555878466921311"
-          crossOrigin="anonymous"
-        />
-      </head>
       <body className={inter.className} suppressHydrationWarning>
         {/* Teachable Machine ライブラリ */}
         <Script

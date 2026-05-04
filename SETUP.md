@@ -40,6 +40,12 @@ touch .env.local
 # AdSense (나중에 설정)
 
 # NEXT_PUBLIC_ADSENSE_CLIENT_ID=ca-pub-XXXXXXXXXXXXXXXX
+# NEXT_PUBLIC_ENABLE_ADSENSE_AD_UNITS=false
+# NEXT_PUBLIC_ADSENSE_HOME_SLOT=1234567890
+
+# 사이트 URL (sitemap/robots용)
+
+# NEXT_PUBLIC_SITE_URL=https://example.com
 
 \`\`\`
 
@@ -98,15 +104,16 @@ npm run start
 ### AdSense 설정
 
 1. AdSense 계정 생성 및 승인 대기
-2. 광고 단위 생성
-3. 클라이언트 ID 확인
-4. \`src/components/ad-slot.tsx\` 파일에서 주석 처리된 코드 활성화
+2. 승인 전에는 `NEXT_PUBLIC_ENABLE_ADSENSE_AD_UNITS=false` 유지
+3. 승인 후 광고 단위 생성
+4. `NEXT_PUBLIC_ADSENSE_HOME_SLOT`에 실제 숫자 슬롯 ID 설정
+5. 홈 화면처럼 충분한 게시자 콘텐츠가 있는 화면에서만 광고 단위 활성화
 
 ## ⚠️ 주의사항
 
 - **여성 이미지**: 현재 여성 모델에서 사용하는 8종류 이미지가 준비되어 있습니다. 올리브오일은 남성 전용입니다.
 - **모델 파일**: 현재는 Teachable Machine 공개 모델 URL을 사용합니다. 프로덕션에서는 추론 실패 시 랜덤 결과를 노출하지 않습니다.
-- **환경변수**: GA4와 AdSense는 선택사항이며, 없어도 앱은 정상 작동합니다.
+- **환경변수**: GA4와 AdSense는 선택사항이며, 없어도 앱은 정상 작동합니다. sitemap/robots 정확도를 위해 프로덕션에서는 `NEXT_PUBLIC_SITE_URL` 설정을 권장합니다.
 
 ## 🐛 문제 해결
 

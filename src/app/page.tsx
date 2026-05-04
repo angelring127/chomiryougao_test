@@ -8,10 +8,12 @@ import { LanguageSwitcher } from "@/components/language-switcher";
 import { GenderToggle } from "@/components/gender-toggle";
 import { SeasoningCarousel } from "@/components/seasoning-carousel";
 import { AdSlot } from "@/components/ad-slot";
+import { AdsenseReviewScript } from "@/components/adsense-review-script";
 import { useI18n } from "@/hooks/use-i18n";
 import { useInference } from "@/features/inference/hooks/use-inference";
 import { Sparkles, AlertCircle } from "lucide-react";
 import { trackEvents } from "@/lib/analytics";
+import { ADSENSE_SLOTS } from "@/lib/adsense";
 import { useAppStore } from "@/store/app-store";
 import Link from "next/link";
 import seasoningsData from "@/../data/seasonings.json";
@@ -48,6 +50,8 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <AdsenseReviewScript />
+
       {/* ヘッダー */}
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-14 items-center justify-between">
@@ -357,7 +361,7 @@ export default function HomePage() {
 
         {/* 広告スロット（下部） */}
         <div className="max-w-4xl mx-auto mb-16">
-          <AdSlot slotId="top-slot" position="top" />
+          <AdSlot slotId={ADSENSE_SLOTS.home} />
         </div>
       </main>
 
@@ -371,6 +375,10 @@ export default function HomePage() {
             <span className="hidden sm:inline">•</span>
             <Link href="/terms" className="hover:underline">
               {t("footer.terms")}
+            </Link>
+            <span className="hidden sm:inline">•</span>
+            <Link href="/about" className="hover:underline">
+              {t("nav.about")}
             </Link>
           </div>
           <p className="text-center text-sm text-muted-foreground">

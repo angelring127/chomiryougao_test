@@ -1,19 +1,24 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import {
+  ADSENSE_AD_UNITS_ENABLED,
+  ADSENSE_CLIENT_ID,
+} from "@/lib/adsense";
 
 interface AdSlotProps {
   slotId: string;
-  position: "top" | "bottom";
   className?: string;
 }
 
-export function AdSlot({ slotId, position, className = "" }: AdSlotProps) {
-  const adRef = useRef<HTMLDivElement>(null);
+export function AdSlot({ slotId, className = "" }: AdSlotProps) {
+  const adRef = useRef<HTMLModElement>(null);
   const isInitialized = useRef(false);
+  const canRenderAd =
+    ADSENSE_AD_UNITS_ENABLED && ADSENSE_CLIENT_ID && /^\d+$/.test(slotId);
 
   useEffect(() => {
-    if (isInitialized.current) return;
+    if (!canRenderAd || isInitialized.current) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -48,26 +53,20 @@ export function AdSlot({ slotId, position, className = "" }: AdSlotProps) {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [canRenderAd]);
+
+  if (!canRenderAd) {
+    return null;
+  }
 
   return (
-    <div
+    <ins
       ref={adRef}
-      className={`min-h-[100px] w-full flex items-center justify-center bg-muted/30 rounded-lg ${className}`}
-      data-ad-position={position}
-    >
-      {/* MVP: プレースホルダー表示 */}
-      <div className="text-xs text-muted-foreground">Ad Slot ({position})</div>
-
-      {/* 本番環境では以下を使用 */}
-      {/* <ins
-        className="adsbygoogle"
-        style={{ display: 'block' }}
-        data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-        data-ad-slot={slotId}
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      /> */}
-    </div>
+      className={`adsbygoogle block ${className}`}
+      data-ad-client={ADSENSE_CLIENT_ID}
+      data-ad-slot={slotId}
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+    />
   );
 }

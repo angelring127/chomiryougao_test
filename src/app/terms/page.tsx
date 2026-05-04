@@ -1,6 +1,7 @@
 "use client";
 
 import { useI18n } from "@/hooks/use-i18n";
+import { AdsenseReviewScript } from "@/components/adsense-review-script";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { Sparkles, FileText } from "lucide-react";
 import Link from "next/link";
@@ -10,6 +11,8 @@ export default function TermsPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <AdsenseReviewScript />
+
       {/* ヘッダー */}
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-14 items-center justify-between">
@@ -104,6 +107,10 @@ export default function TermsPage() {
             <span className="hidden sm:inline">•</span>
             <Link href="/privacy" className="hover:underline">
               {t("footer.privacy")}
+            </Link>
+            <span className="hidden sm:inline">•</span>
+            <Link href="/about" className="hover:underline">
+              {t("nav.about")}
             </Link>
           </div>
         </div>

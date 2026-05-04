@@ -27,7 +27,7 @@
     },
     "advertising": {
       "title": "About Advertising",
-      "content": "This service is provided free of charge and displays advertisements through Google AdSense to cover operating costs.\n\nGoogle AdSense uses cookies and similar technologies to display ads tailored to users' interests. Users can disable personalized advertising on Google's Ads Settings page (https://www.google.com/settings/ads).\n\nInformation collected through advertising is processed according to Google's Privacy Policy, and this service does not directly access or store this information. Ad display is optimized to not affect service quality."
+      "content": "This service is provided free of charge and may display Google AdSense ads after approval to help cover operating costs.\n\nGoogle AdSense uses cookies and similar technologies to display ads tailored to users' interests. Users can disable personalized advertising on Google's Ads Settings page (https://www.google.com/settings/ads).\n\nInformation collected through advertising is processed according to Google's Privacy Policy, and this service does not directly access or store this information. Ad display is optimized to avoid harming service quality."
     },
     "contact": {
       "title": "Contact",
@@ -231,5 +231,25 @@
         "description": "Share your unique and fun results on social media to create buzz."
       }
     ]
+  },
+  "about": {
+    "title": "About This Site",
+    "description": "Japanese Seasoning Face Test is an entertainment-style diagnostic article and tool that uses familiar seasonings as a playful lens for reading facial impressions. The result is not a medical or scientific judgment; it is designed as a light topic for self-introduction and conversation.",
+    "principles": [
+      {
+        "title": "Original Classification",
+        "description": "Soy sauce, miso, salt, sugar and other seasonings from Japanese food culture are used as motifs to describe facial impressions in an easy-to-understand way."
+      },
+      {
+        "title": "Privacy First",
+        "description": "Image processing happens in the browser and photos are not sent to our server. The experience is built to be both casual and reassuring."
+      },
+      {
+        "title": "Useful Reading",
+        "description": "The site is not only a result screen. It also provides type descriptions, photo tips and explanations that can be read as standalone content."
+      }
+    ],
+    "typeGuideTitle": "How To Read The Seasoning Types",
+    "typeGuideDescription": "Each type is an entertainment classification based on facial depth, outline, features and overall impression. Reading other type descriptions as well as your own result makes the differences between the seasonings easier to enjoy."
   }
 }

@@ -6,7 +6,6 @@ import { useAppStore } from "@/store/app-store";
 import { useI18n } from "@/hooks/use-i18n";
 import { ResultCard } from "@/features/result/components/result-card";
 import { ShareButtons } from "@/features/result/components/share-buttons";
-import { AdSlot } from "@/components/ad-slot";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { formatProbability } from "@/features/inference/lib/inference-engine";
 import { ArrowLeft, Sparkles } from "lucide-react";
@@ -346,11 +345,6 @@ export function ResultContent() {
             </div>
           </section>
 
-          {/* 広告スロット（下部） */}
-          <div className="mt-16">
-            <AdSlot slotId="bottom-slot" position="bottom" />
-          </div>
-
           {/* 再試行促進セクション */}
           <section className="max-w-2xl mx-auto mt-12 text-center">
             <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8">
@@ -382,6 +376,10 @@ export function ResultContent() {
             <span className="hidden sm:inline">•</span>
             <Link href="/terms" className="hover:underline">
               {t("footer.terms")}
+            </Link>
+            <span className="hidden sm:inline">•</span>
+            <Link href="/about" className="hover:underline">
+              {t("nav.about")}
             </Link>
           </div>
           <p className="text-center text-sm text-muted-foreground">
